@@ -1,0 +1,27 @@
+h1 {
+    @include font-h1;
+}
+
+h2 {
+    @include font-h2;
+}
+
+h3 {
+    @include font-h3;
+}
+
+h4 {
+    @include font-h4;
+}
+
+h5 {
+    @include font-h5;
+}
+
+.font-16 {
+    @include font-16;
+}
+
+.font-14 {
+    @include font-14;
+}

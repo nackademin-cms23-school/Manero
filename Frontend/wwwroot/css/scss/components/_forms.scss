@@ -1,0 +1,137 @@
+textarea,
+select,
+input:not([type="checkbox"]) {
+    min-width: 300px;
+    font-size: 16px;
+    font-family: "manrope";
+    font-weight: 400 !important;
+    padding: 10px 16px;
+    border-radius: 999px;
+    border: 1px solid var(--color-light-gray);
+    background-color: var(--color-white);
+    color: var(--color-main);
+
+    &::placeholder {
+        opacity: 0.5;
+    }
+}
+
+.input-search-group {
+    position: relative;
+
+    input {
+        position: relative;
+        padding-right: 40px;
+    }
+
+    i {
+        position: absolute;
+        top: 14px;
+        right: 1rem;
+    }
+}
+
+
+.select {
+    position: relative;
+    min-width: 300px;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5.5 7l4.5 4.5L14.5 7z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+
+
+    .selected {
+        padding: 8px 16px;
+        border-radius: 8px;
+        border: 1px solid var(--color-gray-400);
+        cursor: pointer;
+    }
+
+    .select-options {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--color-white);
+        border: 1px solid var(--color-gray-400);
+        z-index: 10;
+
+        .option {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .option:hover {
+            background-color: var(--color-gray-400);
+        }
+    }
+}
+
+input[type=checkbox] {
+    height: 20px;
+    width: 20px;
+    margin: 0;
+}
+
+form {
+    width: 100%;
+    display: grid;
+    font-size: 16px;
+    font-weight: 400 !important;
+
+
+    .input-group {
+        display: grid;
+        position: relative;
+        border: 1px solid var(--color-light-gray);
+        border-radius: 999px;
+
+        input {
+            padding: 16px;
+            border: none;
+            background-color: transparent;
+        }
+
+        label {
+            position: absolute;
+            top: 0;
+            left: 25px;
+            margin-top: -10px;
+            background-color: var(--color-white);
+            font-size: 12px;
+        }
+    }
+
+    .checkbox-group {
+        input[type = checkbox] {
+            margin-right: 10px;
+        }
+
+
+        .input-group-checkbox {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+
+
+    button {
+        font-size: 16px;
+        font-weight: 400 !important;
+        width: 100%;
+    }
+
+    .input-validation-error {
+        border-color: var(--color-system-error);
+    }
+
+    .field-validation-error {
+        font-size: 14px;
+        font-weight: 400 !important;
+        color: var(--color-system-error);
+        padding: 2px 5px;
+    }
+}
