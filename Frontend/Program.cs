@@ -1,6 +1,10 @@
+using Frontend.Configurations;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
+
+builder.Services.RegisterService(builder.Configuration);
 
 var app = builder.Build();
 
