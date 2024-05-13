@@ -1,0 +1,44 @@
+﻿@model EditAccountViewModel
+
+
+<section class="edit-account">
+    <div class="container">
+        <div class="profile-img">
+            <div class="edit">
+                <a asp-action="Index" asp-controller="Profile">
+                    <i class="fa-thin fa-camera"></i>
+                </a>
+            </div>
+        </div>
+
+        <form method="put" asp-action="EditAccount" asp-controller="Profile">
+            <div class="form">
+                <div class="input-group">
+                    <label>FIRST NAME</label>
+                    <input asp-for="FirstName" />
+                    <span asp-validation-for="FirstName"></span>
+                </div>
+
+                <div class="input-group">
+                    <label>LAST NAME</label>
+                    <input asp-for="LastName" />
+                    <span asp-validation-for="LastName"></span>
+                </div>
+
+                <div class="input-group">
+                    <label>EMAIL</label>
+                    <input asp-for="Email" />
+                    <span asp-validation-for="Email"></span>
+                </div>
+
+                <div class="input-group">
+                    <label>PHONE NUMBER</label>
+                    <input asp-for="PhoneNumber" />
+                    <span asp-validation-for="PhoneNumber"></span>
+                </div>
+
+                <button class="btn btn-main" type="submit">SAVE CHANGES</button>
+            </div>
+        </form>
+    </div>
+</section>

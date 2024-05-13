@@ -494,3 +494,129 @@ a:hover {
 .signup .container .socials .google .active {
   text-decoration: none;
 }
+
+.profile-page .container {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 25px;
+}
+.profile-page .container .profile {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 24px;
+  padding: 40px 0;
+}
+.profile-page .container .profile .profile-img {
+  position: relative;
+  display: flex;
+  align-self: end;
+  justify-self: center;
+  align-content: center;
+  height: 182px;
+  width: 182px;
+  border: solid 8px var(--color-light-gray);
+  border-radius: 100%;
+}
+.profile-page .container .profile .profile-img .edit {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  align-items: center;
+  padding: 25px;
+  height: 18px;
+  width: 18px;
+  border-radius: 100%;
+  background-color: var(--color-light-gray);
+}
+.profile-page .container .profile .profile-img .edit:hover {
+  cursor: pointer;
+}
+.profile-page .container .profile .profile-info {
+  align-self: end;
+  text-align: center;
+}
+.profile-page .container .list {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  background-color: var(--color-light-gray);
+  gap: 1px;
+  padding: 1px 0;
+}
+.profile-page .container .list .option {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: 10px 12px;
+  background-color: var(--color-white);
+}
+.profile-page .container .list .option:hover {
+  cursor: pointer;
+  background-color: var(--color-gray-100);
+  text-decoration: none;
+}
+.profile-page .container .list .option .content {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  gap: 18px;
+}
+.profile-page .container .list .option .content .image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid 1px var(--color-light-gray);
+  height: 18px;
+  width: 18px;
+  padding: 25px;
+  border-radius: 100%;
+}
+.profile-page .container .list .option .content h5 {
+  margin: 0;
+}
+.profile-page .container .list .option .chevron {
+  justify-self: end;
+}
+
+.edit-account .container {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 32px;
+}
+.edit-account .container .profile-img {
+  position: relative;
+  display: flex;
+  align-self: end;
+  justify-self: center;
+  align-content: center;
+  height: 182px;
+  width: 182px;
+  border: solid 8px var(--color-light-gray);
+  border-radius: 100%;
+  margin-top: 91px;
+}
+.edit-account .container .profile-img .edit {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  align-items: center;
+  padding: 25px;
+  height: 18px;
+  width: 18px;
+  border-radius: 100%;
+  background-color: var(--color-light-gray);
+}
+.edit-account .container .profile-img .edit:hover {
+  cursor: pointer;
+}
+.edit-account .container .form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.edit-account .container .form button {
+  padding: 16px;
+}
