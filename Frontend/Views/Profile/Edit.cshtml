@@ -1,4 +1,4 @@
-﻿@model EditAccountViewModel
+﻿@model AccountViewModel
 
 
 <section class="edit-account">
@@ -10,8 +10,10 @@
                 </a>
             </div>
         </div>
-
-        <form method="put" asp-action="EditAccount" asp-controller="Profile">
+        
+        <form method="post" asp-action="EditAccount" asp-controller="Profile">
+            <input asp-for="UserId" hidden readonly/>
+            
             <div class="form">
                 <div class="input-group">
                     <label>FIRST NAME</label>

@@ -1,0 +1,59 @@
+﻿@model AddressViewModel
+<section class="edit-address">
+    <div class="container">
+        
+        
+        
+        <form method="post" asp-action="Update" asp-controller="Address">
+            <div class="form">
+                <input asp-for="Id" hidden readonly />
+                <input asp-for="UserId" hidden readonly/>
+                
+                <div class="input-group">
+                    <label>TITLE</label>
+                    <input asp-for="Title" />
+                    <span asp-validation-for="Title"></span>
+                </div>
+
+                <div class="input-group">
+                    <label>ADDRESSLINE 1</label>
+                    <input asp-for="AddressLine1" />
+                    <span asp-validation-for="AddressLine1"></span>
+                </div>
+
+                <div class="input-group">
+                    <label>ADDRESSLINE 2</label>
+                    <input asp-for="AddressLine2" />
+                    <span asp-validation-for="AddressLine2"></span>
+                </div>
+
+                <div class="input-group">
+                    <label>POSTAL CODE</label>
+                    <input asp-for="PostalCode" />
+                    <span asp-validation-for="PostalCode"></span>
+                </div>
+
+                <div class="input-group">
+                    <label>CITY</label>
+                    <input asp-for="City" />
+                    <span asp-validation-for="City"></span>
+                </div>
+
+                <div class="input-group">
+                    <label>COUNTRY</label>
+                    <input asp-for="Country" />
+                    <span asp-validation-for="Country"></span>
+                </div>
+
+                <button class="btn btn-main" type="submit">SAVE ADDRESS</button>
+            </div>
+        </form>
+
+        <div class="delete">
+            <a class="delete-button btn btn-white" asp-action="DeleteAddress" asp-controller="Address" asp-route-id="@Model.Id" asp-route-userId="@Model.UserId">Remove Address</a>
+            <div>
+                @TempData["StatusMessage"]
+            </div>
+        </div>
+    </div>
+</section>

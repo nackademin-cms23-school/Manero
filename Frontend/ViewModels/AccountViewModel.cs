@@ -2,7 +2,7 @@
 
 namespace Frontend.ViewModels;
 
-public class EditAccountViewModel
+public class AccountViewModel
 {
     public string UserId { get; set; } = null!;
 

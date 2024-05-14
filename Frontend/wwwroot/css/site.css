@@ -620,3 +620,126 @@ a:hover {
 .edit-account .container .form button {
   padding: 16px;
 }
+.edit-account .container .form button:hover {
+  cursor: pointer;
+}
+
+.address-page .container {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  text-align: center;
+}
+.address-page .container .address-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  margin: 42px 24px;
+  background-color: var(--color-light-gray);
+  gap: 1px;
+}
+.address-page .container .address-list .address {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  width: 100%;
+  gap: 12px;
+  background-color: var(--color-white);
+  padding: 12px 18px;
+}
+.address-page .container .address-list .address:hover {
+  text-decoration: none;
+  cursor: pointer;
+  background-color: var(--color-gray-200);
+}
+.address-page .container .address-list .address:hover .address-icon {
+  border-color: var(--color-gray-700);
+}
+.address-page .container .address-list .address .address-icon {
+  display: flex;
+  justify-self: start;
+  align-items: center;
+  justify-content: center;
+  border: solid 1px var(--color-light-gray);
+  border-radius: 100%;
+  padding: 12px;
+  transition: border-color 0.25s ease-in-out;
+}
+.address-page .container .address-list .address .content {
+  display: flex;
+  flex-direction: column;
+  line-height: 160%;
+  font-weight: 400;
+  color: var(--color-text);
+  font-family: var(--font-standard);
+  line-height: 150% !important;
+  font-size: 0.875em;
+}
+.address-page .container .add-address {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 160%;
+  font-weight: 400;
+  color: var(--color-text);
+  font-family: var(--font-standard);
+  line-height: 150% !important;
+  font-size: 0.875em;
+}
+.address-page .container .add-address .add-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid 1px var(--color-light-gray);
+  border-radius: 100%;
+  padding: 12px;
+}
+.address-page .container .add-address .add-button:hover {
+  background-color: var(--color-green);
+  border-color: var(--color-gray-700);
+  color: var(--color-white);
+  text-decoration: none;
+  cursor: pointer;
+}
+.address-page .container .add-address .add-button i {
+  width: 16px;
+  height: 16px;
+}
+
+.edit-address {
+  margin-top: 96px;
+}
+.edit-address .container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.edit-address .container .form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.edit-address .container .form button {
+  padding: 16px;
+}
+.edit-address .container .form button:hover {
+  cursor: pointer;
+}
+.edit-address .container .delete .delete-button {
+  border: solid 1px var(--color-red);
+  color: var(--color-red);
+}
+.edit-address .container .delete .delete-button:hover {
+  background-color: var(--color-red);
+  color: var(--color-white);
+  cursor: pointer;
+  text-decoration: none;
+}
+.edit-address .container .delete div {
+  color: var(--color-red);
+  padding-left: 12px;
+}

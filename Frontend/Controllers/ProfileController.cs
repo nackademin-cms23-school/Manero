@@ -1,36 +1,37 @@
-﻿using Frontend.ViewModels;
+﻿using Frontend.Interfaces;
+using Frontend.Services;
+using Frontend.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-using System.Text.Json.Serialization;
 
 namespace Frontend.Controllers;
-
-public class ProfileController(HttpClient http, IConfiguration config) : Controller
+public class ProfileController(IAccountService accountService, AddressService addressService) : Controller
 {
-    private readonly HttpClient _http = http;
-    private readonly IConfiguration _config = config;
+    private readonly IAccountService _accountService = accountService;
+    private readonly AddressService _addressService = addressService;
+    private readonly string _userId = "9f8b99e0-9bc8-4c51-881f-07542689e9ca";
 
-    public IActionResult Index()
-    {
-        return View("Profile");
-    }
 
-    public async Task<IActionResult> Edit()
+    [HttpGet]
+    [Route("/profile")]
+    public async Task<IActionResult> Index()
     {
-        var result = await _http.GetAsync("url");
-        var responseContent = await result.Content.ReadAsStringAsync();
-        EditAccountViewModel? model = JsonConvert.DeserializeObject<EditAccountViewModel>(responseContent);
+        AccountViewModel model = await _accountService.GetAsync(_userId);
         return View(model);
     }
 
-    public async Task<IActionResult> EditAccount(EditAccountViewModel model)
+    [HttpGet]
+    [Route("/profile/edit")]
+    public async Task<IActionResult> Edit()
     {
-        model.UserId = "9f8b99e0-9bc8-4c51-881f-07542689e9ca";
+        AccountViewModel model = await _accountService.GetAsync(_userId);
+        return View(model);
+    }
 
-
-        var response = await _http.PutAsJsonAsync("url", model);
-
-        return RedirectToAction("Edit");
-
+    [HttpPost]
+    [Route("/profile/postaccount")]
+    public async Task<IActionResult> EditAccount(AccountViewModel form)
+    {
+        AccountViewModel model = await _accountService.UpdateAsync(form);
+        return RedirectToAction("Index");
     }
 }
