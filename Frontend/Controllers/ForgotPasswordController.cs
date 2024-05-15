@@ -24,20 +24,41 @@ public class ForgotPasswordController(HttpClient http) : Controller
             var result = await _http.PostAsJsonAsync("", model);
             if(result.IsSuccessStatusCode)
             {
-                return RedirectToAction("ForgotPasswordNewPassword", "ForgotPassword");
+                return RedirectToAction("NewPassword", "ForgotPassword");
                 //Ska Skicka en kod till email. 
                 //Skriva in kod 
                 //Få skriva in ett nytt lösenord
             }
-            else if(result.StatusCode == HttpStatusCode.Conflict)
+        }
+        else
+        {
+            ViewData["StatusMessage"] = "Please enter all information correctly.";
+        }
+        return View(model);
+    }
+
+    [HttpGet]
+    [Route("/forgotpassword/newpassword")]
+    public IActionResult NewPassword()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    [Route("/forgotpassword/newpassword")]
+    public async Task<IActionResult> NewPassword(NewPasswordViewModel model)
+    {
+        if(ModelState.IsValid)
+        {
+            var result = await _http.PostAsJsonAsync("", model);
+            if(result.IsSuccessStatusCode)
             {
-                ViewData["StatusMessage"] = "The emailaddress does not exists.";
+                return RedirectToAction("SignIn", "Auth");
             }
             else
             {
-                ViewData["StatusMessage"] = "Something went wrong. Please try again.";
+                ViewData["StatusMessage"] = "Something went wrong";
             }
-
         }
         else
         {
