@@ -2,8 +2,8 @@
 
 public class AddressViewModel
 {
-    public int Id { get; set; }
-    public string UserId { get; set; } = null!;
+    public int? Id { get; set; }
+    public string? UserId { get; set; }
     public string Title { get; set; } = null!;
     public string AddressLine1 { get; set; } = null!;
     public string? AddressLine2 { get; set; }

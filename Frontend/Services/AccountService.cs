@@ -33,7 +33,7 @@ public class AccountService(HttpClient http, IConfiguration config) : IAccountSe
     {
         try
         {
-            var response = await _http.GetAsync($"https://assignmentaccountprovider.azurewebsites.net/api/AccountProvider/{id}?code={_config["Secrets:AccountProviderId"]}");
+            var response = await _http.GetAsync($"https://assignmentaccountprovider.azurewebsites.net/api/AccountProvider/{id}?code={_config["Secrets:AccountProvider"]}");
             if (response.IsSuccessStatusCode)
             {
                 AccountViewModel model = await JsonService.DeserializeToModelAsync<AccountViewModel>(response);
@@ -68,7 +68,7 @@ public class AccountService(HttpClient http, IConfiguration config) : IAccountSe
     {
         try
         {
-            var response = await _http.DeleteAsync($"https://assignmentaccountprovider.azurewebsites.net/api/AccountProvider/{id}?code={_config["Secrets:AccountProviderId"]}");
+            var response = await _http.DeleteAsync($"https://assignmentaccountprovider.azurewebsites.net/api/AccountProvider/{id}?code={_config["Secrets:AccountProvider"]}");
             if (response.IsSuccessStatusCode)
             {
                 return true;
