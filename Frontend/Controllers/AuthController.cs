@@ -1,5 +1,6 @@
 ﻿using Frontend.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 using static System.Net.WebRequestMethods;
 
 namespace Frontend.Controllers;
@@ -33,6 +34,52 @@ public class AuthController : Controller
             {
                 return RedirectToAction("Verify", "Verification");
             }
+            else if (result.StatusCode == HttpStatusCode.Conflict)
+            {
+                ViewData["StatusMessage"] = "User with same email already exist";
+            }
+            else
+            {
+                ViewData["StatusMessage"] = "Something went wrong. please try again";
+            }
+        }
+        else
+        {
+            ViewData["StatusMessage"] = "Please enter all information correctly";
+        }
+        return View(model);
+    }
+
+    #endregion
+
+
+    #region Sign in
+    [HttpGet]
+    [Route("/signin")]
+    public IActionResult SignIn()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    [Route("/signin")]
+    public async Task<IActionResult> SignIn(SignInViewModel model)
+    {
+        if (ModelState.IsValid)
+        {
+            var result = await _http.PostAsJsonAsync("http://localhost:7234/api/SignIn", model);
+            if (result.IsSuccessStatusCode)
+            {
+                return LocalRedirect("/");
+            }
+            else
+            {
+                ViewData["StatusMessage"] = "Incorrect email or password";
+            }
+        }
+        else
+        {
+            ViewData["StatusMessage"] = "Please enter all information correctly";
         }
         return View(model);
     }
