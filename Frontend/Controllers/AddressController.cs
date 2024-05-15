@@ -1,4 +1,5 @@
-﻿using Frontend.Services;
+﻿using Frontend.Factories;
+using Frontend.Services;
 using Frontend.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
@@ -26,7 +27,7 @@ namespace Frontend.Controllers
         }
 
         [HttpPost]
-        [Route("address/postaddress")]
+        [Route("address/editaddress")]
         public async Task<IActionResult> Update(AddressViewModel form)
         {
             AddressViewModel address = await _addressService.UpdateAsync(form);
@@ -37,6 +38,15 @@ namespace Frontend.Controllers
         public IActionResult AddAddress()
         {
             return View();
+        }
+
+        [Route("address/createaddress")]
+        public async Task<IActionResult> Create(AddressViewModel form)
+        {
+            form.UserId = _userId;
+
+            AddressViewModel model = await _addressService.CreateAsync(AddressFactory.Create(form));
+            return RedirectToAction("Index");
         }
 
         [Route("address/delete/{id}/{userId}")]

@@ -14,7 +14,7 @@ public class AddressService(HttpClient http, IConfiguration config)
     {
         try
         {
-            var response = await _http.GetAsync($"https://assignmentaddressprovider.azurewebsites.net/api/AddressProvider/{userId}?code={_config["Secrets:AddressProviderUserId"]}");
+            var response = await _http.GetAsync($"https://assignmentaddressprovider.azurewebsites.net/api/AddressProvider/{userId}?code={_config["Secrets:AddressProvider"]}");
             if (response.IsSuccessStatusCode)
             {
                 IEnumerable<AddressViewModel> addresses = await JsonService.DeserializeToModelAsync<IEnumerable<AddressViewModel>>(response);
@@ -30,7 +30,7 @@ public class AddressService(HttpClient http, IConfiguration config)
     }
     public async Task<AddressViewModel> GetOneAsync(string userId, string addressId)
     {
-        var response = await _http.GetAsync($"https://assignmentaddressprovider.azurewebsites.net/api/AddressProvider/{userId}/{addressId}?code={_config["Secrets:AddressProviderId"]}");
+        var response = await _http.GetAsync($"https://assignmentaddressprovider.azurewebsites.net/api/AddressProvider/{userId}/{addressId}?code={_config["Secrets:AddressProvider"]}");
         if (response.IsSuccessStatusCode)
         {
             AddressViewModel address = await JsonService.DeserializeToModelAsync<AddressViewModel>(response);
@@ -52,7 +52,7 @@ public class AddressService(HttpClient http, IConfiguration config)
     {
         try
         {
-            var response = await _http.DeleteAsync($"https://assignmentaddressprovider.azurewebsites.net/api/AddressProvider/{userId}/{id}?code={_config["Secrets:AddressProviderId"]}");
+            var response = await _http.DeleteAsync($"https://assignmentaddressprovider.azurewebsites.net/api/AddressProvider/{userId}/{id}?code={_config["Secrets:AddressProvider"]}");
             if (response.IsSuccessStatusCode)
             {
                 return true;
@@ -64,5 +64,23 @@ public class AddressService(HttpClient http, IConfiguration config)
             Debug.WriteLine(ex);
             return false;
         }
+    }
+
+    public async Task<AddressViewModel> CreateAsync(AddressForm form)
+    {
+        try
+        {
+            var response = await _http.PostAsJsonAsync($"https://assignmentaddressprovider.azurewebsites.net/api/AddressProvider?code={_config["Secrets:AddressProvider"]}", form);
+            if (response.IsSuccessStatusCode)
+            {
+                AddressViewModel model = await JsonService.DeserializeToModelAsync<AddressViewModel>(response);
+                return model;
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine(ex);
+        }
+        return null!;
     }
 }
