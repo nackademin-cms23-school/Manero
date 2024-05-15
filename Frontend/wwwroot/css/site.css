@@ -872,3 +872,50 @@ a:hover {
 .signin .container .socials .google .active {
   text-decoration: none;
 }
+
+.forgotpassword .container {
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+  height: 100%;
+  margin-top: 2rem;
+  padding: 20px;
+}
+.forgotpassword .container .top-nav {
+  display: grid;
+  width: 100%;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas: "back title void";
+}
+.forgotpassword .container .top-nav i {
+  display: flex;
+  grid-area: back;
+  align-items: center;
+  justify-content: flex-start;
+}
+.forgotpassword .container .top-nav h4 {
+  display: flex;
+  grid-area: title;
+  align-items: center;
+  justify-content: center;
+}
+.forgotpassword .container form {
+  width: 300px;
+  gap: 20px;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: "email" "button";
+}
+@media (min-width: 768px) {
+  .forgotpassword .container form {
+    width: 650px;
+  }
+}
+.forgotpassword .container form .form-email {
+  grid-area: email;
+}
+.forgotpassword .container form button {
+  grid-area: button;
+}
