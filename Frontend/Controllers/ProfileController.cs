@@ -4,10 +4,9 @@ using Frontend.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Frontend.Controllers;
-public class ProfileController(IAccountService accountService, AddressService addressService) : Controller
+public class ProfileController(IAccountService accountService) : Controller
 {
     private readonly IAccountService _accountService = accountService;
-    private readonly AddressService _addressService = addressService;
     private readonly string _userId = "9f8b99e0-9bc8-4c51-881f-07542689e9ca";
 
 

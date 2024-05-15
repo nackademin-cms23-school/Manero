@@ -1,13 +1,14 @@
 ﻿using Frontend.Factories;
+using Frontend.Interfaces;
 using Frontend.Services;
 using Frontend.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Frontend.Controllers
 {
-    public class AddressController(AddressService addressService) : Controller
+    public class AddressController(IAddressService addressService) : Controller
     {
-        private readonly AddressService _addressService = addressService;
+        private readonly IAddressService _addressService = addressService;
         private readonly string _userId = "9f8b99e0-9bc8-4c51-881f-07542689e9ca";
 
         [HttpGet]
