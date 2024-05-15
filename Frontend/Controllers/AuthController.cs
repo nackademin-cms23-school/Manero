@@ -1,6 +1,12 @@
-﻿using Frontend.ViewModels;
+﻿using Frontend.Models;
+using Frontend.ViewModels;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System.Net;
+using System.Security.Claims;
 using static System.Net.WebRequestMethods;
 
 namespace Frontend.Controllers;
@@ -9,13 +15,14 @@ public class AuthController : Controller
 {
     private readonly HttpClient _http;
 
+
     public AuthController(HttpClient http)
     {
         _http = http;
+
     }
 
     #region sign up
-
     [HttpGet]
     [Route("/signup")]
     public IActionResult SignUp()
@@ -67,10 +74,38 @@ public class AuthController : Controller
     {
         if (ModelState.IsValid)
         {
-            var result = await _http.PostAsJsonAsync("http://localhost:7234/api/SignIn", model);
-            if (result.IsSuccessStatusCode)
+            var response = await _http.PostAsJsonAsync("http://localhost:7234/api/SignIn", model);
+            if (response.IsSuccessStatusCode)
             {
-                return LocalRedirect("/");
+                var result = JsonConvert.DeserializeObject<SignInResponseResult>(await response.Content.ReadAsStringAsync());
+
+                if (result != null)
+                {
+                    var claims = new List<Claim>
+                    {
+                        new Claim(ClaimTypes.NameIdentifier, result.Id),
+                        new Claim(ClaimTypes.Name, result.Username),
+                        new Claim(ClaimTypes.Email, result.Email)
+                    };
+
+                    var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+                    var authProperties = new AuthenticationProperties
+                    {
+                        AllowRefresh = true,
+                        ExpiresUtc = DateTime.Now.AddHours(1),
+                        IsPersistent = true,
+                    };
+
+                    await HttpContext.SignInAsync(
+                        CookieAuthenticationDefaults.AuthenticationScheme,
+                        new ClaimsPrincipal(claimsIdentity),
+                        authProperties);
+
+                    return RedirectToAction("Home", "Default");
+                }
+
+                
             }
             else
             {
@@ -82,6 +117,17 @@ public class AuthController : Controller
             ViewData["StatusMessage"] = "Please enter all information correctly";
         }
         return View(model);
+    }
+
+    #endregion
+
+    #region sign out
+    [Route("/signout")]
+    public async Task<IActionResult> SignOut()
+    {
+        await HttpContext.SignOutAsync(
+            CookieAuthenticationDefaults.AuthenticationScheme);
+        return RedirectToAction("SignIn", "Auth");
     }
 
     #endregion
