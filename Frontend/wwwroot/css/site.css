@@ -494,3 +494,252 @@ a:hover {
 .signup .container .socials .google .active {
   text-decoration: none;
 }
+
+.profile-page .container {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 25px;
+}
+.profile-page .container .profile {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 24px;
+  padding: 40px 0;
+}
+.profile-page .container .profile .profile-img {
+  position: relative;
+  display: flex;
+  align-self: end;
+  justify-self: center;
+  align-content: center;
+  height: 182px;
+  width: 182px;
+  border: solid 8px var(--color-light-gray);
+  border-radius: 100%;
+}
+.profile-page .container .profile .profile-img .edit {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  align-items: center;
+  padding: 25px;
+  height: 18px;
+  width: 18px;
+  border-radius: 100%;
+  background-color: var(--color-light-gray);
+}
+.profile-page .container .profile .profile-img .edit:hover {
+  cursor: pointer;
+}
+.profile-page .container .profile .profile-info {
+  align-self: end;
+  text-align: center;
+}
+.profile-page .container .list {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  background-color: var(--color-light-gray);
+  gap: 1px;
+  padding: 1px 0;
+}
+.profile-page .container .list .option {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: 10px 12px;
+  background-color: var(--color-white);
+}
+.profile-page .container .list .option:hover {
+  cursor: pointer;
+  background-color: var(--color-gray-100);
+  text-decoration: none;
+}
+.profile-page .container .list .option .content {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  gap: 18px;
+}
+.profile-page .container .list .option .content .image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid 1px var(--color-light-gray);
+  height: 18px;
+  width: 18px;
+  padding: 25px;
+  border-radius: 100%;
+}
+.profile-page .container .list .option .content h5 {
+  margin: 0;
+}
+.profile-page .container .list .option .chevron {
+  justify-self: end;
+}
+
+.edit-account .container {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 32px;
+}
+.edit-account .container .profile-img {
+  position: relative;
+  display: flex;
+  align-self: end;
+  justify-self: center;
+  align-content: center;
+  height: 182px;
+  width: 182px;
+  border: solid 8px var(--color-light-gray);
+  border-radius: 100%;
+  margin-top: 91px;
+}
+.edit-account .container .profile-img .edit {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  align-items: center;
+  padding: 25px;
+  height: 18px;
+  width: 18px;
+  border-radius: 100%;
+  background-color: var(--color-light-gray);
+}
+.edit-account .container .profile-img .edit:hover {
+  cursor: pointer;
+}
+.edit-account .container .form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.edit-account .container .form button {
+  padding: 16px;
+}
+.edit-account .container .form button:hover {
+  cursor: pointer;
+}
+
+.address-page .container {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  text-align: center;
+}
+.address-page .container .address-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  margin: 42px 24px;
+  background-color: var(--color-light-gray);
+  gap: 1px;
+}
+.address-page .container .address-list .address {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  width: 100%;
+  gap: 12px;
+  background-color: var(--color-white);
+  padding: 12px 18px;
+}
+.address-page .container .address-list .address:hover {
+  text-decoration: none;
+  cursor: pointer;
+  background-color: var(--color-gray-200);
+}
+.address-page .container .address-list .address:hover .address-icon {
+  border-color: var(--color-gray-700);
+}
+.address-page .container .address-list .address .address-icon {
+  display: flex;
+  justify-self: start;
+  align-items: center;
+  justify-content: center;
+  border: solid 1px var(--color-light-gray);
+  border-radius: 100%;
+  padding: 12px;
+  transition: border-color 0.25s ease-in-out;
+}
+.address-page .container .address-list .address .content {
+  display: flex;
+  flex-direction: column;
+  line-height: 160%;
+  font-weight: 400;
+  color: var(--color-text);
+  font-family: var(--font-standard);
+  line-height: 150% !important;
+  font-size: 0.875em;
+}
+.address-page .container .add-address {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 160%;
+  font-weight: 400;
+  color: var(--color-text);
+  font-family: var(--font-standard);
+  line-height: 150% !important;
+  font-size: 0.875em;
+}
+.address-page .container .add-address .add-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid 1px var(--color-light-gray);
+  border-radius: 100%;
+  padding: 12px;
+}
+.address-page .container .add-address .add-button:hover {
+  background-color: var(--color-green);
+  border-color: var(--color-gray-700);
+  color: var(--color-white);
+  text-decoration: none;
+  cursor: pointer;
+}
+.address-page .container .add-address .add-button i {
+  width: 16px;
+  height: 16px;
+}
+
+.edit-address {
+  margin-top: 96px;
+}
+.edit-address .container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.edit-address .container .form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.edit-address .container .form button {
+  padding: 16px;
+}
+.edit-address .container .form button:hover {
+  cursor: pointer;
+}
+.edit-address .container .delete .delete-button {
+  border: solid 1px var(--color-red);
+  color: var(--color-red);
+}
+.edit-address .container .delete .delete-button:hover {
+  background-color: var(--color-red);
+  color: var(--color-white);
+  cursor: pointer;
+  text-decoration: none;
+}
+.edit-address .container .delete div {
+  color: var(--color-red);
+  padding-left: 12px;
+}

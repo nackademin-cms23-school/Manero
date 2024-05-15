@@ -1,0 +1,44 @@
+.edit-address {
+    margin-top: 96px;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+
+            button {
+                padding: 16px;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .delete {
+            
+            .delete-button {
+                border: solid 1px var(--color-red);
+                color: var(--color-red);
+
+                &:hover {
+                    background-color: var(--color-red);
+                    color: var(--color-white);
+                    cursor: pointer;
+                    text-decoration: none;
+                }
+            }
+            div {
+                color: var(--color-red);
+                padding-left: 12px;
+            }
+        }
+    }
+}
