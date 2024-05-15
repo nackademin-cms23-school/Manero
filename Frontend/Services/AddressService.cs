@@ -1,11 +1,10 @@
 ﻿using Frontend.Helpers;
+using Frontend.Interfaces;
 using Frontend.ViewModels;
-using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
 namespace Frontend.Services;
-
-public class AddressService(HttpClient http, IConfiguration config)
+public class AddressService(HttpClient http, IConfiguration config) : IAddressService
 {
     private readonly HttpClient _http = http;
     private readonly IConfiguration _config = config;

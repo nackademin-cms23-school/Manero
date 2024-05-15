@@ -9,6 +9,6 @@ public static class ServiceConfigurations
     {
         services.AddScoped(sp => new HttpClient());
         services.AddScoped<IAccountService, AccountService>();
-        services.AddScoped<AddressService>();
+        services.AddScoped<IAddressService, AddressService>();
     }
 }
