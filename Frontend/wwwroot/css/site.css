@@ -494,3 +494,23 @@ a:hover {
 .signup .container .socials .google .active {
   text-decoration: none;
 }
+
+.navigation {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  border-top: 0.5px solid var(--color-light-gray);
+}
+.navigation .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.navigation .container .nav-links .nav-link {
+  margin: 0 20px;
+}
+.navigation .container .nav-links .nav-icon {
+  width: 30px;
+  height: 30px;
+}

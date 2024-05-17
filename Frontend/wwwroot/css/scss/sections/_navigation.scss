@@ -1,0 +1,31 @@
+.navigation {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-top: .5px solid var(--color-light-gray);
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+
+        .nav-links {
+
+            .nav-link {
+                margin: 0 20px;
+            }
+
+            .nav-icon {
+                width: 30px;
+                height: 30px;
+            }
+
+            .nav-icon:hover {
+            }
+
+            .nav-icon:active {
+            }
+        }
+    }
+}
