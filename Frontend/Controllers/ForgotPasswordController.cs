@@ -21,10 +21,10 @@ public class ForgotPasswordController(HttpClient http) : Controller
     {
         if(ModelState.IsValid)
         {
-            var result = await _http.PostAsJsonAsync("", model);
+            var result = await _http.PostAsJsonAsync("http://localhost:7023/api/ForgotPassword", model);
             if(result.IsSuccessStatusCode)
             {
-                return RedirectToAction("NewPassword", "ForgotPassword");
+                return RedirectToAction("ResetPassword", "ForgotPassword");
                 //Ska Skicka en kod till email. 
                 //Skriva in kod 
                 //Få skriva in ett nytt lösenord
@@ -38,15 +38,15 @@ public class ForgotPasswordController(HttpClient http) : Controller
     }
 
     [HttpGet]
-    [Route("/forgotpassword/newpassword")]
-    public IActionResult NewPassword()
+    [Route("/forgotpassword/resetpassword")]
+    public IActionResult ResetPassword()
     {
         return View();
     }
 
     [HttpPost]
-    [Route("/forgotpassword/newpassword")]
-    public async Task<IActionResult> NewPassword(NewPasswordViewModel model)
+    [Route("/forgotpassword/resetpassword")]
+    public async Task<IActionResult> ResetPassword(NewPasswordViewModel model)
     {
         if(ModelState.IsValid)
         {
