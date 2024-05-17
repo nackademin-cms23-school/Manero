@@ -1,0 +1,137 @@
+
+#menu {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    box-shadow: 350px 0 15px rgba(0, 0, 0, 0.6);
+
+    h2 {
+        color: white;
+        font-size: 45px;
+        margin-left: 20px;
+    }
+
+    .menuOption {
+        display: flex;
+        justify-items: center;
+        align-items: center;
+        margin-left: 20px;
+        color: #B3B9C7;
+        margin: 40px;
+
+        .circle {
+            height: 60px;
+            width: 60px;
+            border: 1px solid #DBE3F5;
+            border-radius: 40px;
+            text-align: center;
+            align-content: center;
+
+            i {
+                font-size: xx-large;
+                color: white;
+            }
+        }
+
+        a {
+            margin-left: 20px;
+            font-size: x-large;
+            text-decoration: none;
+            color: #B3B9C7;
+        }
+    }
+
+    .trackingOrder {
+        margin-left: 30px;
+        position: relative;
+        top: 150px;
+
+        h3 {
+            color: #B3B9C7;
+            font-size: x-large;
+        }
+
+        .order-fieldset {
+            display: flex;
+            justify-content: center;
+            border: 1px solid #B3B9C7;
+            border-radius: 40px;
+            width: 600px;
+            height: 60px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+            legend {
+                font-weight: bold;
+                padding: 0 10px;
+                font-size: large;
+                color: #B3B9C7;
+            }
+
+            .order-container {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin: 0;
+
+                input[type="text"] {
+                    padding: 10px;
+                    border: none;
+                    background-color: transparent;
+                    font-size: 26px;
+                    outline: none;
+                    color: white;
+                    width: 550px;
+                    height: 40px;
+                }
+
+                input[type="text"]::placeholder {
+                    color: #B3B9C7;
+                }
+
+                button {
+                    background-color: #B3B9C7;
+                    border: none;
+                    border-radius: 50%;
+                    width: 55px;
+                    height: 55px;
+                    font-size: 26px;
+                    cursor: pointer;
+
+                    i {
+                        color: black;
+                    }
+                }
+            }
+        }
+    }
+
+
+    button:hover {
+        background-color: #0056b3;
+    }
+}
+
+
+
+#menu a:hover {
+    color: #f1f1f1;
+}
+
+#menu .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+}
+
+#main {
+    transition: margin-left 0.5s;
+    padding: 16px;
+}
