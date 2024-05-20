@@ -1,0 +1,30 @@
+﻿@model VerifyAccountViewModel
+@{
+    ViewData["Title"] = "Verify";
+}
+
+<section class="verification">
+    <div class="container">
+        <div class="top-nav">
+            <i class="fa-solid fa-chevron-left"></i>
+            <h4>Verify your email address</h4>
+        </div>
+        <div class="content">
+            <p class="font-16">Enter your OTP code here.</p>
+
+            <form class="verification-form" method="post" asp-action="VerifyAccount" asp-controller="Verification">
+                <div class="inputs">
+                    <input type="number" asp-for="Code[0]" />
+                    <input type="number" asp-for="Code[1]" />
+                    <input type="number" asp-for="Code[2]" />
+                    <input type="number" asp-for="Code[3]" />
+                    <input type="number" asp-for="Code[4]" />
+                </div>
+
+                <p class="font-16">Didn’t receive the OTP? <a class="font-16" href="#">Resend.</a></p>
+
+                <button class="btn btn-main" type="submit">Verify</button>
+            </form>
+        </div>
+    </div>
+</section>

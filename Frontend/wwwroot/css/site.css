@@ -919,3 +919,63 @@ a:hover {
 .forgotpassword .container form button {
   grid-area: button;
 }
+
+.verification .container {
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+  height: 100%;
+  margin-top: 2rem;
+  padding: 20px;
+}
+.verification .container .top-nav {
+  display: grid;
+  width: 100%;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas: "back title void";
+}
+.verification .container .top-nav i {
+  display: flex;
+  grid-area: back;
+  align-items: center;
+  justify-content: center;
+}
+.verification .container .top-nav h4 {
+  display: flex;
+  grid-area: title;
+  align-items: center;
+  justify-content: center;
+}
+.verification .container .content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.verification .container .content .verification-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.verification .container .content .verification-form .inputs {
+  display: flex;
+  gap: 10px;
+}
+.verification .container .content .verification-form .inputs input {
+  text-align: center;
+  min-width: 60px !important;
+  width: 60px;
+  height: 60px;
+}
+.verification .container .content .verification-form .inputs input::-webkit-outer-spin-button,
+.verification .container .content .verification-form .inputs input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.verification .container .content .verification-form p a {
+  color: var(--color-main);
+}

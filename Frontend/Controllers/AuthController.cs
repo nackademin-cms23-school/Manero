@@ -14,12 +14,13 @@ namespace Frontend.Controllers;
 public class AuthController : Controller
 {
     private readonly HttpClient _http;
+    private readonly IConfiguration _configuration;
 
 
-    public AuthController(HttpClient http)
+    public AuthController(HttpClient http, IConfiguration configuration)
     {
         _http = http;
-
+        _configuration = configuration;
     }
 
     #region sign up
@@ -36,10 +37,11 @@ public class AuthController : Controller
     {
         if (ModelState.IsValid)
         {
-            var result = await _http.PostAsJsonAsync("http://localhost:7234/api/SignUp", model);
+            var result = await _http.PostAsJsonAsync(_configuration["Urls:SignUpUrl"], model);
             if (result.IsSuccessStatusCode)
             {
-                return RedirectToAction("Verify", "Verification");
+                TempData["VerifyAccountEmail"] = model.Email;
+                return RedirectToAction("VerifyAccount", "Verification");
             }
             else if (result.StatusCode == HttpStatusCode.Conflict)
             {
