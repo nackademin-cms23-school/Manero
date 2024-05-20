@@ -13,18 +13,15 @@
         .nav-links {
 
             .nav-link {
-                margin: 0 20px;
+                margin: 0 10px;
+                padding: 10px 12px;
+                color: var(--color-text);
+                border-radius: 50%;
             }
 
-            .nav-icon {
-                width: 30px;
-                height: 30px;
-            }
-
-            .nav-icon:hover {
-            }
-
-            .nav-icon:active {
+            .nav-link:hover, .nav-link:active {
+                color: var(--color-main);
+                background: var(--color-light-gray);
             }
         }
     }

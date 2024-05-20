@@ -508,9 +508,12 @@ a:hover {
   padding: 20px;
 }
 .navigation .container .nav-links .nav-link {
-  margin: 0 20px;
+  margin: 0 10px;
+  padding: 10px 12px;
+  color: var(--color-text);
+  border-radius: 50%;
 }
-.navigation .container .nav-links .nav-icon {
-  width: 30px;
-  height: 30px;
+.navigation .container .nav-links .nav-link:hover, .navigation .container .nav-links .nav-link:active {
+  color: var(--color-main);
+  background: var(--color-light-gray);
 }
