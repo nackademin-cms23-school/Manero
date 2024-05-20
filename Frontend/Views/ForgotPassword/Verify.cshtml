@@ -1,0 +1,27 @@
+﻿@model ForgotPasswordCodeViewModel
+@{
+    ViewData["title"] = "Forgot Password Verify";
+}
+
+<section class="forgotpassword-verification">
+    <div class="container">
+        <div class="top-nav">
+            <a href=""><i class="fa-solid fa-chevron-left"></i></a>
+            <h4>Forgot Password Code</h4>
+        </div>
+        <div class="content">
+            <p class="font-16">Please enter your verification code. You should have received a code via email.</p>
+
+            <form class="forgotpassword-verification-form" method="post" action="">
+                <div class="inputs">
+                    <input type="number" asp-for="Code[0]" />
+                    <input type="number" asp-for="Code[1]" />
+                    <input type="number" asp-for="Code[2]" />
+                    <input type="number" asp-for="Code[3]" />
+                    <input type="number" asp-for="Code[4]" />
+                </div>
+                <button class="btn btn-main" type="submit">VERIFY</button>
+            </form>
+        </div>
+    </div>
+</section>
