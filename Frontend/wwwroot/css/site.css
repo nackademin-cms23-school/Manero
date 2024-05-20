@@ -920,6 +920,7 @@ a:hover {
   grid-area: button;
 }
 
+
 .accountcreated .container {
   display: grid;
   width: 100%;
@@ -950,6 +951,7 @@ a:hover {
 }
 
 .forgotpassword-verification .container {
+
   display: grid;
   justify-content: center;
   justify-items: center;
@@ -960,12 +962,15 @@ a:hover {
   margin-top: 2rem;
   padding: 20px;
 }
+
 .forgotpassword-verification .container .top-nav {
   display: grid;
   width: 100%;
   grid-template-columns: auto 1fr auto;
   grid-template-areas: "back title void";
 }
+
+
 .forgotpassword-verification .container .top-nav a {
   display: flex;
   grid-area: back;
@@ -973,16 +978,19 @@ a:hover {
   justify-content: flex-start;
 }
 .forgotpassword-verification .container .top-nav h4 {
+
   display: flex;
   grid-area: title;
   align-items: center;
   justify-content: center;
 }
+
 .forgotpassword-verification .container .content {
   display: flex;
   flex-direction: column;
   gap: 30px;
 }
+
 .forgotpassword-verification .container .content .forgotpassword-verification-form {
   display: flex;
   flex-direction: column;
@@ -990,6 +998,7 @@ a:hover {
   justify-content: center;
   gap: 20px;
 }
+
 .forgotpassword-verification .container .content .forgotpassword-verification-form .inputs {
   display: flex;
   gap: 10px;
@@ -1000,6 +1009,7 @@ a:hover {
   width: 60px;
   height: 60px;
 }
+
 .forgotpassword-verification .container .content .forgotpassword-verification-form .inputs input::-webkit-outer-spin-button,
 .forgotpassword-verification .container .content .forgotpassword-verification-form .inputs ::-webkit-inner-spin-button {
   -webkit-appearance: none;
