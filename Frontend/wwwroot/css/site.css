@@ -920,7 +920,38 @@ a:hover {
   grid-area: button;
 }
 
-.verification .container {
+
+.accountcreated .container {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 10px;
+}
+.accountcreated .container .top-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.accountcreated .container .createduser-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+}
+.accountcreated .container .text-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  gap: 10px;
+}
+
+.forgotpassword-verification .container {
+
   display: grid;
   justify-content: center;
   justify-items: center;
@@ -931,51 +962,101 @@ a:hover {
   margin-top: 2rem;
   padding: 20px;
 }
-.verification .container .top-nav {
+
+.forgotpassword-verification .container .top-nav {
   display: grid;
   width: 100%;
   grid-template-columns: auto 1fr auto;
   grid-template-areas: "back title void";
 }
-.verification .container .top-nav i {
+
+
+.forgotpassword-verification .container .top-nav a {
   display: flex;
   grid-area: back;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
-.verification .container .top-nav h4 {
+.forgotpassword-verification .container .top-nav h4 {
+
   display: flex;
   grid-area: title;
   align-items: center;
   justify-content: center;
 }
-.verification .container .content {
+
+.forgotpassword-verification .container .content {
   display: flex;
   flex-direction: column;
   gap: 30px;
 }
-.verification .container .content .verification-form {
+
+.forgotpassword-verification .container .content .forgotpassword-verification-form {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 20px;
 }
-.verification .container .content .verification-form .inputs {
+
+.forgotpassword-verification .container .content .forgotpassword-verification-form .inputs {
   display: flex;
   gap: 10px;
 }
-.verification .container .content .verification-form .inputs input {
+.forgotpassword-verification .container .content .forgotpassword-verification-form .inputs input {
   text-align: center;
   min-width: 60px !important;
   width: 60px;
   height: 60px;
 }
-.verification .container .content .verification-form .inputs input::-webkit-outer-spin-button,
-.verification .container .content .verification-form .inputs input::-webkit-inner-spin-button {
+
+.forgotpassword-verification .container .content .forgotpassword-verification-form .inputs input::-webkit-outer-spin-button,
+.forgotpassword-verification .container .content .forgotpassword-verification-form .inputs ::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-.verification .container .content .verification-form p a {
-  color: var(--color-main);
+
+.reset-password .container {
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin-top: 2rem;
+  padding: 20px 0;
+  gap: 20px;
+}
+.reset-password .container .top-nav {
+  display: grid;
+  width: 100%;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas: "back title void";
+}
+.reset-password .container .top-nav i {
+  display: flex;
+  grid-area: back;
+  align-items: center;
+  justify-content: flex-start;
+}
+.reset-password .container .top-nav h4 {
+  display: flex;
+  grid-area: title;
+  align-items: center;
+  justify-content: center;
+}
+.reset-password .container .reset-form {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas: "new" "confirm" "button";
+  gap: 10px;
+}
+.reset-password .container .reset-form .form-new {
+  grid-area: new;
+}
+.reset-password .container .reset-form .form-confirm {
+  grid-area: confirm;
+}
+.reset-password .container .reset-form button {
+  grid-area: button;
 }
