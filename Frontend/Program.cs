@@ -1,4 +1,5 @@
 using Frontend.Configurations;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,10 +17,11 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Default}/{action=Home}/{id?}");
+    pattern: "{controller=Onboarding}/{action=Onboarding}/{id?}");
 
 app.Run();

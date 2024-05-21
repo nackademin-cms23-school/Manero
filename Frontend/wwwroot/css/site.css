@@ -857,6 +857,11 @@ a:hover {
   width: 16px;
   height: 16px;
 }
+.address-page .container .no-addresses {
+  padding: 12px;
+  margin: 12px;
+  background-color: var(--color-gray-200);
+}
 
 .edit-address {
   margin-top: 96px;
@@ -1019,4 +1024,330 @@ a:hover {
 .signin .container .socials .google:hover, .signin .container .socials .google:active, .signin .container .socials .google:focus,
 .signin .container .socials .google .active {
   text-decoration: none;
+}
+
+.forgotpassword .container {
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+  height: 100%;
+  margin-top: 2rem;
+  padding: 20px;
+}
+.forgotpassword .container .top-nav {
+  display: grid;
+  width: 100%;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas: "back title void";
+}
+.forgotpassword .container .top-nav i {
+  display: flex;
+  grid-area: back;
+  align-items: center;
+  justify-content: flex-start;
+}
+.forgotpassword .container .top-nav h4 {
+  display: flex;
+  grid-area: title;
+  align-items: center;
+  justify-content: center;
+}
+.forgotpassword .container form {
+  width: 300px;
+  gap: 20px;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: "email" "button";
+}
+@media (min-width: 768px) {
+  .forgotpassword .container form {
+    width: 650px;
+  }
+}
+.forgotpassword .container form .form-email {
+  grid-area: email;
+}
+.forgotpassword .container form button {
+  grid-area: button;
+}
+.add-address-page {
+  margin-top: 96px;
+}
+.add-address-page .container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.add-address-page .container .form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.add-address-page .container .form button {
+  padding: 16px;
+}
+.add-address-page .container .form button:hover {
+  cursor: pointer;
+}
+.add-address-page .container .cancel .cancel-button {
+  border: solid 1px var(--color-gray-800);
+  color: var(--color-black);
+}
+.add-address-page .container .cancel .cancel-button:hover {
+  background-color: var(--color-gray-800);
+  color: var(--color-white);
+  cursor: pointer;
+  text-decoration: none;
+}
+.accountcreated .container {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 10px;
+}
+.accountcreated .container .top-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.accountcreated .container .createduser-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+}
+.accountcreated .container .text-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  gap: 10px;
+}
+
+.forgotpassword-verification .container {
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+  height: 100%;
+  margin-top: 2rem;
+  padding: 20px;
+}
+.forgotpassword-verification .container .top-nav {
+  display: grid;
+  width: 100%;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas: "back title void";
+}
+.forgotpassword-verification .container .top-nav a {
+  display: flex;
+  grid-area: back;
+  align-items: center;
+  justify-content: flex-start;
+}
+.forgotpassword-verification .container .top-nav h4 {
+  display: flex;
+  grid-area: title;
+  align-items: center;
+  justify-content: center;
+}
+.forgotpassword-verification .container .content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.forgotpassword-verification .container .content .forgotpassword-verification-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.forgotpassword-verification .container .content .forgotpassword-verification-form .inputs {
+  display: flex;
+  gap: 10px;
+}
+.forgotpassword-verification .container .content .forgotpassword-verification-form .inputs input {
+  text-align: center;
+  min-width: 60px !important;
+  width: 60px;
+  height: 60px;
+}
+.forgotpassword-verification .container .content .forgotpassword-verification-form .inputs input::-webkit-outer-spin-button,
+.forgotpassword-verification .container .content .forgotpassword-verification-form .inputs ::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.reset-password .container {
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin-top: 2rem;
+  padding: 20px 0;
+  gap: 20px;
+}
+.reset-password .container .top-nav {
+  display: grid;
+  width: 100%;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas: "back title void";
+}
+.reset-password .container .top-nav i {
+  display: flex;
+  grid-area: back;
+  align-items: center;
+  justify-content: flex-start;
+}
+.reset-password .container .top-nav h4 {
+  display: flex;
+  grid-area: title;
+  align-items: center;
+  justify-content: center;
+}
+.reset-password .container .reset-form {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas: "new" "confirm" "button";
+  gap: 10px;
+}
+.reset-password .container .reset-form .form-new {
+  grid-area: new;
+}
+.reset-password .container .reset-form .form-confirm {
+  grid-area: confirm;
+}
+.reset-password .container .reset-form button {
+  grid-area: button;
+}
+
+.verification .container {
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+  height: 100%;
+  margin-top: 2rem;
+  padding: 20px;
+}
+.verification .container .top-nav {
+  display: grid;
+  width: 100%;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas: "back title void";
+}
+.verification .container .top-nav i {
+  display: flex;
+  grid-area: back;
+  align-items: center;
+  justify-content: center;
+}
+.verification .container .top-nav h4 {
+  display: flex;
+  grid-area: title;
+  align-items: center;
+  justify-content: center;
+}
+.verification .container .content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.verification .container .content .verification-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.verification .container .content .verification-form .inputs {
+  display: flex;
+  gap: 10px;
+}
+.verification .container .content .verification-form .inputs input {
+  text-align: center;
+  min-width: 60px !important;
+  width: 60px;
+  height: 60px;
+}
+.verification .container .content .verification-form .inputs input::-webkit-outer-spin-button,
+.verification .container .content .verification-form .inputs input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.verification .container .content .verification-form p a {
+  color: var(--color-main);
+}
+
+.welcome-manero {
+  background-color: var(--color-light-gray);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: relative;
+}
+.welcome-manero .container {
+  border-radius: 50%;
+  border: 2px solid var(--color-white);
+  width: 415px;
+  height: 415px;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.welcome-manero .container .content {
+  background-color: var(--color-white);
+  border-radius: 50%;
+  width: 400px;
+  height: 400px;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.welcome-manero .container .content .text-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  text-align: center;
+  gap: 10px;
+}
+.welcome-manero .container .content button {
+  width: 280px;
+}
+.welcome-manero .container .content a {
+  width: 280px;
+}
+.welcome-manero .container .content .dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+.welcome-manero .container .content .dot .active, .welcome-manero .container .content .dot:hover {
+  background-color: #717171;
 }

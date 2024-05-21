@@ -1,54 +1,116 @@
-﻿using Frontend.Services;
-using Frontend.ViewModels;
+﻿using Frontend.Factories;
+using Frontend.Interfaces;
+using Frontend.ViewModels.Address;
 using Microsoft.AspNetCore.Mvc;
+
 
 namespace Frontend.Controllers
 {
-    public class AddressController(AddressService addressService) : Controller
+    public class AddressController(IAddressService addressService) : Controller
     {
-        private readonly AddressService _addressService = addressService;
+        private readonly IAddressService _addressService = addressService;
         private readonly string _userId = "9f8b99e0-9bc8-4c51-881f-07542689e9ca";
 
         [HttpGet]
         [Route("address")]
         public async Task<IActionResult> Index()
         {
-            IEnumerable<AddressViewModel> addresses = await _addressService.GetAllAsync(_userId);
-            return View(addresses);
+            IEnumerable<Address> addresses = await _addressService.GetAllAsync(_userId);
+            AddressViewModelList viewModels = AddressFactory.Create(addresses);
+            return View(viewModels);
         }
 
         [HttpGet]
-        [Route("address/{id}")]
-        public async Task<IActionResult> AddressDetails(string id)
+        [Route("address/{key}")] 
+        public async Task<IActionResult> AddressDetails(string key)
         {
-            AddressViewModel address = await _addressService.GetOneAsync(_userId, id);
-            return View(address);
+            bool successfullParse = int.TryParse(key, out int keyAsInt);
+            if (successfullParse)
+            {
+                IEnumerable<Address> addresses = await _addressService.GetAllAsync(_userId);
+                var address = addresses.ElementAtOrDefault(keyAsInt);
+
+                if (address != null)
+                {
+                    AddressViewModel viewModel = AddressFactory.Create(await _addressService.GetOneAsync(_userId, address.Id.ToString()), key);
+                    if (viewModel != null)
+                    {
+                        return View(viewModel);
+                    }
+                }
+            }
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
-        [Route("address/postaddress")]
-        public async Task<IActionResult> Update(AddressViewModel form)
+        [Route("address/editaddress")]
+        public async Task<IActionResult> Update(AddressViewModel model)
         {
-            AddressViewModel address = await _addressService.UpdateAsync(form);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                bool successfullParse = int.TryParse(model.Key, out int keyAsInt);
+                if (successfullParse)
+                {
+                    IEnumerable<Address> addresses = await _addressService.GetAllAsync(_userId);
+                    var address = addresses.ElementAtOrDefault(keyAsInt);
+
+                    if (address != null!)
+                    {
+                        var returnedModel = await _addressService.UpdateAsync(AddressFactory.Create(model, _userId, address.Id));
+                        if (returnedModel != null!)
+                        {
+                            return RedirectToAction("Index");
+                        }
+                        
+                    }
+                    TempData["StatusMessage"] = "Something went wrong. Please try again";
+                }
+            }
+            return View("AddressDetails", model);
         }
 
         [Route("address/create")]
         public IActionResult AddAddress()
         {
-            return View();
+            return View();  
+        }   
+
+        [Route("address/createaddress")]
+        public async Task<IActionResult> Create(AddressViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                AddressViewModel returnedModel = await _addressService.CreateAsync(AddressFactory.Create(model, _userId));
+                if ( returnedModel != null)
+                {
+                    return RedirectToAction("Index");
+                }
+                TempData["StatusMessage"] = "Something went wrong. Please try again";
+                return View("AddAddress", model);
+            }
+            return View("AddAddress", model);
         }
 
-        [Route("address/delete/{id}/{userId}")]
-        public async Task<IActionResult> DeleteAddress(string id, string userId) 
+        [Route("address/delete/{key}")]
+        public async Task<IActionResult> DeleteAddress(string key) 
         {
-            bool result = await _addressService.DeleteAsync(id, userId);
-            if (result)
+            bool successfullParse = int.TryParse(key, out int keyAsInt);
+            if (successfullParse)
             {
-                return RedirectToAction("Index");
+                var addresses = await _addressService.GetAllAsync(_userId);
+                var address = addresses.ElementAtOrDefault(keyAsInt);
+
+                if (address != null)
+                {
+                    bool result = await _addressService.DeleteAsync(_userId, address.Id!);
+                    if (result)
+                    {
+                        return RedirectToAction("Index");
+                    }
+                }
             }
             TempData["StatusMessage"] = "Something went wrong. Please try again.";
-            return RedirectToAction("AddressDetails", new { id = id });
+            return RedirectToAction("AddressDetails", new { key });
         }
     }
 }
