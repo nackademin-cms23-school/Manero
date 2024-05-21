@@ -709,6 +709,11 @@ a:hover {
   width: 16px;
   height: 16px;
 }
+.address-page .container .no-addresses {
+  padding: 12px;
+  margin: 12px;
+  background-color: var(--color-gray-200);
+}
 
 .edit-address {
   margin-top: 96px;
@@ -919,7 +924,35 @@ a:hover {
 .forgotpassword .container form button {
   grid-area: button;
 }
-
+.add-address-page {
+  margin-top: 96px;
+}
+.add-address-page .container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.add-address-page .container .form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.add-address-page .container .form button {
+  padding: 16px;
+}
+.add-address-page .container .form button:hover {
+  cursor: pointer;
+}
+.add-address-page .container .cancel .cancel-button {
+  border: solid 1px var(--color-gray-800);
+  color: var(--color-black);
+}
+.add-address-page .container .cancel .cancel-button:hover {
+  background-color: var(--color-gray-800);
+  color: var(--color-white);
+  cursor: pointer;
+  text-decoration: none;
+}
 .accountcreated .container {
   display: grid;
   width: 100%;
