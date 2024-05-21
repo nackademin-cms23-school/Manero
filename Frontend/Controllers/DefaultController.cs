@@ -4,7 +4,7 @@ namespace Frontend.Controllers;
 
 public class DefaultController : Controller
 {
-    [Route("/")]
+    [Route("/home")]
     public IActionResult Home()
     {
         return View();
