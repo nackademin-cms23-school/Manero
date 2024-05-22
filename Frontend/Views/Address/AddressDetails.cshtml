@@ -1,14 +1,10 @@
 ﻿@model AddressViewModel
 <section class="edit-address">
     <div class="container">
-        
-        
-        
         <form method="post" asp-action="Update" asp-controller="Address">
             <div class="form">
-                <input asp-for="Id" hidden readonly />
-                <input asp-for="UserId" hidden readonly/>
-                
+                <input asp-for="Key" hidden readonly />
+
                 <div class="input-group">
                     <label>TITLE</label>
                     <input asp-for="Title" />
@@ -50,7 +46,7 @@
         </form>
 
         <div class="delete">
-            <a class="delete-button btn btn-white" asp-action="DeleteAddress" asp-controller="Address" asp-route-id="@Model.Id" asp-route-userId="@Model.UserId">Remove Address</a>
+            <a class="delete-button btn btn-white" asp-action="DeleteAddress" asp-controller="Address" asp-route-key="@Model.Key">Remove Address</a>
             <div>
                 @TempData["StatusMessage"]
             </div>
