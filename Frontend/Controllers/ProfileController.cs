@@ -21,7 +21,7 @@ public class ProfileController(IAccountService accountService) : Controller
     [HttpGet]
     [Route("/profile/edit")]
     public async Task<IActionResult> Edit()
-    {
+        {
         AccountViewModel model = await _accountService.GetAsync(_userId);
         return View(model);
     }
