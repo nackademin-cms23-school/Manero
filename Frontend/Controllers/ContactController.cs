@@ -2,10 +2,10 @@
 
 namespace Frontend.Controllers;
 
-public class DefaultController : Controller
+public class ContactController : Controller
 {
-    [Route("/home")]
-    public IActionResult Home()
+	[Route("/burger")]
+	public IActionResult ContactMenu()
     {
         return View();
     }

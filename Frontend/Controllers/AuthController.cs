@@ -76,7 +76,7 @@ public class AuthController : Controller
     {
         if (ModelState.IsValid)
         {
-            var response = await _http.PostAsJsonAsync("http://localhost:7234/api/SignIn", model);
+            var response = await _http.PostAsJsonAsync(_configuration["Urls:SignInUrl"], model);
             if (response.IsSuccessStatusCode)
             {
                 var result = JsonConvert.DeserializeObject<SignInResponseResult>(await response.Content.ReadAsStringAsync());
