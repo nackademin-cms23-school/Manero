@@ -1,0 +1,45 @@
+.category-boxes {
+    .container {
+        background-color: #DBE3F5;
+        height: 100%;
+        width: 100%;
+
+        .section-small {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            .box-small {
+                height: 250px;
+                width: 100%;
+                background-color: #171C31;
+                opacity: 0.6;
+                border: 1px solid white;
+
+                .categoryName {
+                    color: white !important;
+                    margin-top: 190px;
+                    margin-left: 30px;
+                }
+            }
+        }
+
+        .sections-large {
+            display: grid;
+            grid-template-columns: 1fr;
+
+            .box-large {
+                height: 250px;
+                width: 100%;
+                background-color: #171C31;
+                opacity: 0.6;
+                border: 1px solid white;
+
+                .categoryName {
+                    color: white !important;
+                    margin-top: 190px;
+                    margin-left: 30px;
+                }
+            }
+        }
+    }
+}
