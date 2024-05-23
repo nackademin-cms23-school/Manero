@@ -2,6 +2,7 @@
 using Frontend.Interfaces;
 using Frontend.ViewModels;
 using System.Diagnostics;
+using System.Security.Claims;
 
 
 namespace Frontend.Services;
@@ -29,11 +30,12 @@ public class AccountService(HttpClient http, IConfiguration config) : IAccountSe
             return null!;
         }
     }
-    public async Task<AccountViewModel> GetAsync(string id)
+    public async Task<AccountViewModel> GetAsync(ClaimsPrincipal user)
     {
         try
         {
-            var response = await _http.GetAsync($"https://assignmentaccountprovider.azurewebsites.net/api/AccountProvider/{id}?code={_config["Secrets:AccountProvider"]}");
+            string userId = ClaimConvert.GetIdFromUserClaim(user);
+            var response = await _http.GetAsync($"https://assignmentaccountprovider.azurewebsites.net/api/AccountProvider/{userId}?code={_config["Secrets:AccountProvider"]}");
             if (response.IsSuccessStatusCode)
             {
                 AccountViewModel model = await JsonService.DeserializeToModelAsync<AccountViewModel>(response);
@@ -64,11 +66,12 @@ public class AccountService(HttpClient http, IConfiguration config) : IAccountSe
             return null!;
         }
     }
-    public async Task<bool> DeleteAsync(string id)
+    public async Task<bool> DeleteAsync(ClaimsPrincipal user)
     {
         try
         {
-            var response = await _http.DeleteAsync($"https://assignmentaccountprovider.azurewebsites.net/api/AccountProvider/{id}?code={_config["Secrets:AccountProvider"]}");
+            string userId = ClaimConvert.GetIdFromUserClaim(user);
+            var response = await _http.DeleteAsync($"https://assignmentaccountprovider.azurewebsites.net/api/AccountProvider/{userId}?code={_config["Secrets:AccountProvider"]}");
             if (response.IsSuccessStatusCode)
             {
                 return true;
