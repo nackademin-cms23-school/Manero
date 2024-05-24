@@ -1,0 +1,182 @@
+
+.homepage {
+    .container {
+        display: grid;
+        grid-gap: 20px;
+
+        @media include {
+        }
+
+        .header {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            justify-items: center;
+            align-items: center;
+            padding: 10px;
+
+            .total-cost {
+                display: flex;
+                justify-content: flex-start;
+                position: relative;
+                margin: 10px;
+                text-align: center;
+                width: 25px;
+                height: 25px;
+
+                .price {
+                    position: absolute;
+                    background-color: var(--color-accent);
+                    right: 15px;
+                    border-radius: 50%;
+                    width: 25px;
+                    height: 25px;
+                }
+
+                i {
+                    font-size: 20px;
+                }
+            }
+        }
+
+
+
+        .bag-shop {
+            position: relative;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .mySwiper {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            height: 105px;
+            overflow: hidden;
+
+            .swiper-slide {
+                background-color: var(--color-light-gray);
+                text-align: center;
+                line-height: 170px;
+                border-radius: 50%;
+                width: 75px;
+                height: 75px;
+                margin-right: 8px;
+            }
+        }
+
+        .content {
+            background-color: var(--color-light-gray);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+
+            .promotion {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                h2 {
+                    color: white;
+                }
+            }
+
+            a {
+                width: 150px;
+            }
+        }
+
+        .feature-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .feature-content {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px;
+
+            .card-img {
+                background-color: var( --color-light-gray);
+                height: 170px;
+                width: 160px;
+                position: relative;
+
+                .bag-heart {
+                    margin-left: 10px;
+                    position: absolute;
+                    right: 10px;
+                    top: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1em;
+                }
+            }
+        }
+
+        .bestseller-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .bestseller-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            .bestseller-card {
+                display: grid;
+                grid-template-columns: 1fr 3fr auto;
+                grid-template-areas: "img info heart";
+                gap: 10px;
+
+                .bestseller-img {
+                    background-color: var(--color-light-gray);
+                }
+
+                .bestseller-img {
+                    grid-area: img;
+                }
+
+                .bestseller-feature {
+                    grid-area: info;
+                }
+
+                .bestseller-heart {
+                    grid-area: heart;
+                }
+            }
+
+            .rating {
+                color: var(--color-yellow);
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1320px;
+    }
+}

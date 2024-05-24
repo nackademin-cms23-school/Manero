@@ -1,0 +1,77 @@
+﻿@model AccountViewModel
+
+<section class="profile-page">
+    <div class="container">
+        <div class="profile">
+            <div class="profile-img">
+                <div class="edit">
+                    <a asp-action="AccountDetails" asp-controller="Profile">
+                        <i class="fa-thin fa-pen-line"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="profile-info">
+                <h3>@Model.FirstName @Model.LastName </h3>
+                <p class="font-14">@Model.Email</p>
+            </div>
+        </div>
+        <div class="list">
+            <a class="option">
+                <div class="info">
+                    <div class="image">
+                        <i class="fa-thin fa-calendar"></i>
+                    </div>
+                    <h5>Order history</h5>
+                </div>
+                <div class="chevron">
+                    <i class="fa-light fa-chevron-right"></i>
+                </div>
+            </a>
+            <a class="option">
+                <div class="info">
+                    <div class="image">
+                        <i class="fa-thin fa-credit-card"></i>
+                    </div>
+                    <h5>Payment method</h5>
+                </div>
+                <div class="chevron">
+                    <i class="fa-light fa-chevron-right"></i>
+                </div>
+            </a>
+            <a class="option" asp-action="Index" asp-controller="Address">
+                <div class="info">
+                    <div class="image">
+                        <i class="fa-thin fa-location-dot"></i>
+                    </div>
+                    <h5>My address</h5>
+                </div>
+                <div class="chevron">
+                    <i class="fa-light fa-chevron-right"></i>
+                </div>
+            </a>
+            <a class="option">
+                <div class="info">
+                    <div class="image">
+                        <i class="fa-light fa-gift"></i>
+                    </div>
+                    <h5>My promocodes</h5>
+                </div>
+                <div class="chevron">
+                    <i class="fa-light fa-chevron-right"></i>
+                </div>
+            </a>
+            <a class="option" asp-action="SignOut" asp-controller="Auth">
+                <div class="info">
+                    <div class="image">
+                        <i class="fa-light fa-right-from-bracket"></i>
+                    </div>
+                    <h5>Sign out</h5>
+                </div>
+                <div class="Sign out">
+                    <i class="fa-light fa-chevron-right"></i>
+                </div>
+            </a>
+        </div>
+    </div>
+    
+</section>
