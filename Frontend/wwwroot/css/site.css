@@ -704,13 +704,13 @@ a:hover {
   background-color: var(--color-gray-100);
   text-decoration: none;
 }
-.profile-page .container .list .option .content {
+.profile-page .container .list .option .info {
   display: flex;
   align-items: center;
   padding: 0;
   gap: 18px;
 }
-.profile-page .container .list .option .content .image {
+.profile-page .container .list .option .info .image {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -720,7 +720,7 @@ a:hover {
   padding: 25px;
   border-radius: 100%;
 }
-.profile-page .container .list .option .content h5 {
+.profile-page .container .list .option .info h5 {
   margin: 0;
 }
 .profile-page .container .list .option .chevron {
@@ -816,7 +816,7 @@ a:hover {
   padding: 12px;
   transition: border-color 0.25s ease-in-out;
 }
-.address-page .container .address-list .address .content {
+.address-page .container .address-list .address .info {
   display: flex;
   flex-direction: column;
   line-height: 160%;
@@ -1659,4 +1659,27 @@ a:hover {
 #main {
   transition: margin-left 0.5s;
   padding: 16px;
+}
+
+.navigation {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  border-top: 0.5px solid var(--color-light-gray);
+}
+.navigation .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.navigation .container .nav-links .nav-link {
+  margin: 0 10px;
+  padding: 10px 12px;
+  color: var(--color-text);
+  border-radius: 50%;
+}
+.navigation .container .nav-links .nav-link:hover, .navigation .container .nav-links .nav-link:active {
+  color: var(--color-main);
+  background: var(--color-light-gray);
 }
