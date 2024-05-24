@@ -9,11 +9,5 @@ namespace Frontend.Controllers
         {
             return View();
         }
-
-        [HttpPost]
-        public IActionResult Checkout()
-        {
-            return View();
-        }
     }
 }
