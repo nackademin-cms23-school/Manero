@@ -1644,23 +1644,19 @@ a:hover {
 #menu button:hover {
   background-color: #0056b3;
 }
-
 #menu a:hover {
   color: #f1f1f1;
 }
-
 #menu .closebtn {
   position: absolute;
   top: 0;
   right: 25px;
   font-size: 36px;
 }
-
 #main {
   transition: margin-left 0.5s;
   padding: 16px;
 }
-
 .order-history .container .list {
   display: flex;
   flex-direction: column;
@@ -1759,4 +1755,26 @@ a:hover {
   align-items: center;
   justify-items: center;
   gap: 8px;
+}
+.navigation {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  border-top: 0.5px solid var(--color-light-gray);
+}
+.navigation .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.navigation .container .nav-links .nav-link {
+  margin: 0 10px;
+  padding: 10px 12px;
+  color: var(--color-text);
+  border-radius: 50%;
+}
+.navigation .container .nav-links .nav-link:hover, .navigation .container .nav-links .nav-link:active {
+  color: var(--color-main);
+  background: var(--color-light-gray);
 }
