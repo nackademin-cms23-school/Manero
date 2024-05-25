@@ -1,0 +1,58 @@
+﻿@model OrderHistoryList
+
+<section class="order-history">
+    <div class="container">
+        <div class="list">
+            @foreach (var order in Model.OrderHistory)
+            {
+                <div class="order">
+                    <div class="info">
+                        <h5>#@order.OrderId</h5>
+                        <div class="status @order.OrderStatus">
+                            @if (order.OrderStatus == "Delivered")
+                            {
+                                @order.OrderStatus
+                                <i class="fa-light fa-check"></i>
+                            }
+                            else if (order.OrderStatus == "Shipping")
+                            {
+                                @order.OrderStatus
+                                <i class="fa-light fa-truck"></i>
+                            }
+                            else if (order.OrderStatus == "Canceled")
+                            {
+                                @order.OrderStatus
+                                <i class="fa-regular fa-x"></i>
+                            }
+                        </div>
+                        <p class="date">@order.OrderDate</p>
+                        <p class="price">@order.OrderPrice SEK</p>
+                    </div>
+                    
+                    
+                    <div class="order-details">
+                        <div class="info">
+                            @foreach (var product in order.Products)
+                            {
+                                <div class="title">@product</div>
+                            }
+                            
+                        </div>
+                        <div class="options">
+                            <a class="repeat" asp-action="Order" asp-controller="Ckeckout">
+                                <i class="fa-solid fa-arrows-repeat"></i>
+                                repeat order
+                                
+                            </a>
+                            <a class="review" asp-action="CreateReview" asp-controller="Review">
+                                leave a review
+                                <i class="fa-regular fa-chevron-right"></i>
+                            </a>
+                        </div>
+                        
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

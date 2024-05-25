@@ -1,0 +1,117 @@
+.order-history {
+    .container {
+        .list {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            background-color: var(--color-gray-400);
+            padding-bottom: 2px;
+
+            .order {
+                background-color: var(--color-white);
+                height: fit-content;
+
+                &:hover {
+                    text-decoration: none;
+                    cursor: pointer;
+                }
+
+                .info {
+                    display: grid;
+                    grid-template-columns: 1fr auto;
+                    gap: 12px;
+                    padding: 12px 24px;
+                    z-index: 1000;
+
+
+                    .status {
+                        &.Delivered {
+                            color: var(--color-green);
+                        }
+
+                        &.Shipping {
+                            color: var(--color-yellow);
+                        }
+
+                        &.Canceled {
+                            color: var(--color-red);
+                        }
+                    }
+
+                    .date {
+                        @include font-14;
+                    }
+
+                    .price {
+                        @include font-14;
+                        font-weight: 800;
+                        color: var(--color-black);
+                    }
+                }
+
+                .order-details {
+                    background-color: var(--color-gray-100);
+                    transform-origin: top;
+                    max-height: 0px;
+                    border-left: solid 2px var(--color-gray-100);
+                    border-right: solid 2px var(--color-gray-100);
+                    transition: max-height 0.1s;
+                    overflow-y: hidden;
+
+                    &.visible {
+                        max-height: 200px;
+                        transition: max-height 0.1s;
+                    }
+
+                    .info {
+                        display: grid;
+                        grid-template-columns: 1fr;
+                        flex-direction: column;
+                        overflow-y: auto;
+                        gap: 8px;
+                        max-height: 150px;
+                        
+                        border-radius: 13px;
+                        
+
+                        &::-webkit-scrollbar {
+                            background-color: var(--color-gray-400);
+                            border-radius: 999px;
+                        }
+
+                        &::-webkit-scrollbar-thumb {
+                            background-color: var(--color-gray-700);
+                            border-radius: 999px;
+                        }
+
+                        .title {
+                            background-color: var(--color-gray-100);
+                        }
+                    }
+
+                    .options {
+                        padding: 12px;
+                        display: flex;
+                        justify-content: space-between;
+                        
+                        
+
+                        .repeat {
+                            display: flex;
+                            align-items: center;
+                            justify-items: center;
+                            gap: 8px;
+                        }
+
+                        .review {
+                            display: flex;
+                            align-items: center;
+                            justify-items: center;
+                            gap: 8px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
