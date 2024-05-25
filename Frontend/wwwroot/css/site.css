@@ -1644,23 +1644,118 @@ a:hover {
 #menu button:hover {
   background-color: #0056b3;
 }
-
 #menu a:hover {
   color: #f1f1f1;
 }
-
 #menu .closebtn {
   position: absolute;
   top: 0;
   right: 25px;
   font-size: 36px;
 }
-
 #main {
   transition: margin-left 0.5s;
   padding: 16px;
 }
-
+.order-history .container .list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  background-color: var(--color-gray-400);
+  padding-bottom: 2px;
+}
+.order-history .container .list .order {
+  background-color: var(--color-white);
+  height: fit-content;
+}
+.order-history .container .list .order:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+.order-history .container .list .order .info {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  padding: 12px 24px;
+  z-index: 1000;
+}
+.order-history .container .list .order .info .status.Delivered {
+  color: var(--color-green);
+}
+.order-history .container .list .order .info .status.Shipping {
+  color: var(--color-yellow);
+}
+.order-history .container .list .order .info .status.Canceled {
+  color: var(--color-red);
+}
+.order-history .container .list .order .info .date {
+  line-height: 160%;
+  font-weight: 400;
+  color: var(--color-text);
+  font-family: var(--font-standard);
+  line-height: 150% !important;
+  font-size: 0.875em;
+}
+.order-history .container .list .order .info .price {
+  line-height: 160%;
+  font-weight: 400;
+  color: var(--color-text);
+  font-family: var(--font-standard);
+  line-height: 150% !important;
+  font-size: 0.875em;
+  font-weight: 800;
+  color: var(--color-black);
+}
+.order-history .container .list .order .order-details {
+  background-color: var(--color-gray-100);
+  transform-origin: top;
+  max-height: 0px;
+  border-left: solid 2px var(--color-gray-100);
+  border-right: solid 2px var(--color-gray-100);
+  transition: max-height 0.1s;
+  overflow-y: hidden;
+}
+.order-history .container .list .order .order-details.visible {
+  max-height: 200px;
+  transition: max-height 0.1s;
+}
+.order-history .container .list .order .order-details .info {
+  display: grid;
+  grid-template-columns: 1fr;
+  flex-direction: column;
+  overflow-y: auto;
+  gap: 8px;
+  max-height: 150px;
+  border-radius: 13px;
+}
+.order-history .container .list .order .order-details .info::-webkit-scrollbar {
+  background-color: var(--color-gray-400);
+  border-radius: 999px;
+}
+.order-history .container .list .order .order-details .info::-webkit-scrollbar-thumb {
+  background-color: var(--color-gray-700);
+  border-radius: 999px;
+}
+.order-history .container .list .order .order-details .info .title {
+  background-color: var(--color-gray-100);
+}
+.order-history .container .list .order .order-details .options {
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+.order-history .container .list .order .order-details .options .repeat {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  gap: 8px;
+}
+.order-history .container .list .order .order-details .options .review {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  gap: 8px;
+}
 .navigation {
   position: fixed;
   bottom: 0;
