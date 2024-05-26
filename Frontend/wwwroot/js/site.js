@@ -23,7 +23,7 @@ function forgotPasswordVerification() {
 
 function accountVerification(){
     const form = document.querySelector(".verification-form")
-    const inputs = form.querySelectorAll("input")
+    const inputs = form.querySelectorAll("input")   
 
     inputs.forEach(input => {
         input.addEventListener("keyup", (e) => {
