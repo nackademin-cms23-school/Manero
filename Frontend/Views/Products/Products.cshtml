@@ -1,17 +1,13 @@
-﻿@model ProductViewModel
-@{
-
-
-}
+﻿@model Frontend.ViewModels.ProductViewModel
 
 <div class="feature-card">
     @if (Model.Products != null)
     {
         @foreach (var product in Model.Products)
         {
-           <a class="product" asp-action="SingleProduct" asp-controller="Products" asp-route-id="@product.BatchNumber"> 
+            <a class="product" asp-action="SingleProduct" asp-controller="Products" asp-route-id="@product.BatchNumber">
                 <div class="card-img">
-                    <img src="" alt="" />
+                    <img src="@product.ThumbnailImage" alt="@product.ProductName" />
                     <div class="bag-heart">
                         <i class="fa-regular fa-heart"></i>
                         <i class="fa-regular fa-bag-shopping"></i>
@@ -26,12 +22,6 @@
                         <i class="fa-solid fa-star"></i>
                     </div>
                     <h5 class="product-title">@product.ProductName</h5>
-                    @if (!string.IsNullOrEmpty(product.DiscountPrice))
-                    {
-                        <p class="discountPrice">$@product.DiscountPrice</p>
-                    }
-					<p class="price @(!string.IsNullOrEmpty(product.DiscountPrice) ? "discount-enabled" : "")">$@product.OriginalPrice</p>
-        
                 </div>
             </a>
         }
