@@ -2,13 +2,14 @@
 using Frontend.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using static System.Net.WebRequestMethods;
 
 namespace Frontend.Controllers;
 
 public class ProductsController(HttpClient httpClient) : Controller
 {
 	private readonly HttpClient _httpClient = httpClient;
-    private readonly string _productApiUrl = "https://maneroproductsfunction.azurewebsites.net/api/GetAllProducts";
+    private readonly string _productApiUrl = "https://mhsproducts.azurewebsites.net/api/GetAll?code=b9b60MT2HPX9uzbgAQuuMiwsFiD2Tt08fbd7VEEzO9XrAzFuIJp_ZQ%3D%3D";
 
 
     [Route("/category")]
