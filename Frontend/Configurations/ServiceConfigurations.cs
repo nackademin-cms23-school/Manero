@@ -13,5 +13,12 @@ public static class ServiceConfigurations
         services.AddScoped<IAddressService, AddressService>();
         services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
             .AddCookie();
+
+        services.ConfigureApplicationCookie(x =>
+        {
+            x.LoginPath = "/signin";
+            x.LogoutPath = "/signout";
+            x.AccessDeniedPath = "/denied";
+        });
     }
 }
