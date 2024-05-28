@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     accountVerification()
     onboardingFunction()
     profileImgUpload()
+    handleOrderClick()
 })
 
 function swiperFunction() {
@@ -163,5 +164,30 @@ const handleSubmit = async (e) => {
         const element = document.querySelector("#photoImage")
         console.log(element)
         element.src = data
+    }
+}
+
+const handleOrderClick = () => {
+    try {
+        orders = document.querySelectorAll('.order')
+        if (orders.length > 0) {
+            orders.forEach(order => {
+                
+                order.addEventListener('click', (e) => {
+                    details = order.querySelector('.order-details')
+                    console.log(details)
+                    console.log(order)
+                    if (!details.className.includes('visible')) {
+                        details.className += ' visible'
+                    }
+                    else {
+                        details.className = details.className.replace(' visible', '')
+                    }
+                })
+            })
+        }
+    }
+    catch {
+
     }
 }

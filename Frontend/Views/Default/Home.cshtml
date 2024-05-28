@@ -1,4 +1,5 @@
-﻿<section class="homepage">
+﻿@model ProductList 
+<section class="homepage">
     <div class="container">
         <div class="header">
             <button class="btn btn-menu"><i class="fa-solid fa-bars"></i></button>
@@ -36,83 +37,29 @@
                 <a class="viewall">view all <i class="fa-solid fa-chevron-right"></i></a>
             </div>
             <div class="feature-content">
-                <div class="feature-card">
-                    <div class="card-img">
-                        <div class="bag-heart">
-                            <i class="fa-regular fa-heart"></i>
-                            <i class="fa-regular fa-bag-shopping"></i>
+                @for (var i = 0; i < 4; i++)
+                {
+                    <div class="feature-card">
+                        <div class="card-img">
+                            <img src="@Model.Features[i].ImgUrl" alt="Alternate Text" />
+                            <div class="bag-heart">
+                                <i class="fa-regular fa-heart"></i>
+                                <i class="fa-regular fa-bag-shopping"></i>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <div class="rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p>@Model.Features[i].ProductName</p>
+                            <p>$@Model.Features[i].OriginalPrice</p>
                         </div>
                     </div>
-                    <div class="card-info">
-                        <div class="rating">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-                        <p>Summer pants</p>
-                        <p>$31.78</p>
-                    </div>
-                </div>
-                <div class="feature-card">
-                    <div class="card-img">
-                        <img src="" alt="" />
-                        <div class="bag-heart">
-                            <i class="fa-regular fa-heart"></i>
-                            <i class="fa-regular fa-bag-shopping"></i>
-                        </div>
-                    </div>
-                    <div class="card-info">
-                        <div class="rating">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-                        <p>Summer pants</p>
-                        <p>$31.78</p>
-                    </div>
-                </div>
-                <div class="feature-card">
-                    <div class="card-img">
-                        <div class="bag-heart">
-                            <i class="fa-regular fa-heart"></i>
-                            <i class="fa-regular fa-bag-shopping"></i>
-                        </div>
-                    </div>
-                    <div class="card-info">
-                        <div class="rating">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-                        <p>Summer pants</p>
-                        <p>$31.78</p>
-                    </div>
-                </div>
-                <div class="feature-card">
-                    <div class="card-img">
-                        <div class="bag-heart">
-                            <i class="fa-regular fa-heart"></i>
-                            <i class="fa-regular fa-bag-shopping"></i>
-                        </div>
-                    </div>
-                    <div class="card-info">
-                        <div class="rating">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-                        <p>Summer pants</p>
-                        <p>$31.78</p>
-                    </div>
-                </div>
+                }
             </div>
         </div>
         <div class="bestseller-header">
@@ -120,66 +67,31 @@
             <a>view all <i class="fa-solid fa-chevron-right"></i></a>
         </div>
         <div class="bestseller-content">
-            <div class="bestseller-card">
-                <div class="bestseller-img">
-                </div>
-                <div class="bestseller-feature">
-                    <div class="bestseller-info">
-                        <p>Hand bag</p>
-                        <p>$24.95</p>
-                        <div class="rating">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
+            @for (var i = 0; i < 4; i++)
+            {
+                <div class="bestseller-card">
+                    <div class="bestseller-img">
+                        <img src="@Model.Bestsellers[i].ImgUrl" alt="Alternate Text" />
+
+                    </div>
+                    <div class="bestseller-feature">
+                        <div class="bestseller-info">
+                            <p>@Model.Bestsellers[i].ProductName</p>
+                            <p>$@Model.Bestsellers[i].OriginalPrice</p>
+                            <div class="rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="bestseller-heart">
-                    <i class="fa-regular fa-heart"></i>
-                </div>
-            </div>
-            <div class="bestseller-card">
-                <div class="bestseller-img">
-                </div>
-                <div class="bestseller-feature">
-                    <div class="bestseller-info">
-                        <p>Hand bag</p>
-                        <p>$24.95</p>
-                        <div class="rating">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
+                    <div class="bestseller-heart">
+                        <i class="fa-regular fa-heart"></i>
                     </div>
                 </div>
-                <div class="bestseller-heart">
-                    <i class="fa-regular fa-heart"></i>
-                </div>
-            </div>
-            <div class="bestseller-card">
-                <div class="bestseller-img">
-                </div>
-                <div class="bestseller-feature">
-                    <div class="bestseller-info">
-                        <p>Hand bag</p>
-                        <p>$24.95</p>
-                        <div class="rating">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="bestseller-heart">
-                    <i class="fa-regular fa-heart"></i>
-                </div>
-            </div>
+            } 
         </div>
         <div class="footer">
         </div>
