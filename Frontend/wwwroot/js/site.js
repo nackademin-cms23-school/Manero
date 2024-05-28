@@ -160,10 +160,15 @@ const handleSubmit = async (e) => {
         data = data.replace(/^"|"$/g, '');
 
         console.log(data)
+        const url = `/profile/updateprofilepic?profileUrl=${data}`
 
-        const element = document.querySelector("#photoImage")
-        console.log(element)
-        element.src = data
+        const updatePicRes = await fetch(url)
+
+        if (updatePicRes.status === 200) {
+            const element = document.querySelector("#photoImage")
+            console.log(element)
+            element.src = data
+        }
     }
 }
 
