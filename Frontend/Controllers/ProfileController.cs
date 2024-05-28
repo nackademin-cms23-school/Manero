@@ -1,28 +1,36 @@
 ﻿using Frontend.Interfaces;
 using Frontend.Services;
 using Frontend.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace Frontend.Controllers;
+
+[Authorize]
 public class ProfileController(IAccountService accountService) : Controller
 {
     private readonly IAccountService _accountService = accountService;
-    private readonly string _userId = "9f8b99e0-9bc8-4c51-881f-07542689e9ca";
 
 
     [HttpGet]
     [Route("/profile")]
     public async Task<IActionResult> Index()
     {
-        AccountViewModel model = await _accountService.GetAsync(_userId);
-        return View(model);
+        AccountViewModel model = await _accountService.GetAsync(User);
+        if (model != null)
+        {
+            return View(model);
+        }
+        return null!;
+        
     }
 
     [HttpGet]
     [Route("/profile/edit")]
-    public async Task<IActionResult> Edit()
-        {
-        AccountViewModel model = await _accountService.GetAsync(_userId);
+    public async Task<IActionResult> AccountDetails()
+    {
+        AccountViewModel model = await _accountService.GetAsync(User);
         return View(model);
     }
 

@@ -3,6 +3,7 @@ using Frontend.Interfaces;
 using Frontend.Models;
 using Frontend.ViewModels.Address;
 using System.Diagnostics;
+using System.Security.Claims;
 
 namespace Frontend.Services;
 public class AddressService(HttpClient http, IConfiguration config) : IAddressService
@@ -27,10 +28,11 @@ public class AddressService(HttpClient http, IConfiguration config) : IAddressSe
         }
         return null!;
     }
-    public async Task<IEnumerable<Address>> GetAllAsync(string userId)
+    public async Task<IEnumerable<Address>> GetAllAsync(ClaimsPrincipal user)
     {
         try
         {
+            string userId = ClaimConvert.GetIdFromUserClaim(user);
             var response = await _http.GetAsync($"https://assignmentaddressprovider.azurewebsites.net/api/AddressProvider/{userId}?code={_config["Secrets:AddressProvider"]}");
             if (response.IsSuccessStatusCode)
             {
@@ -45,8 +47,9 @@ public class AddressService(HttpClient http, IConfiguration config) : IAddressSe
             return null!;
         }
     }
-    public async Task<Address> GetOneAsync(string userId, string addressId)
+    public async Task<Address> GetOneAsync(ClaimsPrincipal user, string addressId)
     {
+        string userId = ClaimConvert.GetIdFromUserClaim(user);
         var response = await _http.GetAsync($"https://assignmentaddressprovider.azurewebsites.net/api/AddressProvider/{userId}/{addressId}?code={_config["Secrets:AddressProvider"]}");
         if (response.IsSuccessStatusCode)
         {
@@ -65,10 +68,11 @@ public class AddressService(HttpClient http, IConfiguration config) : IAddressSe
         }
         return null!;
     }
-    public async Task<bool> DeleteAsync(string userId, string id)
+    public async Task<bool> DeleteAsync(ClaimsPrincipal user, string id)
     {
         try
-        {
+        {   
+            string userId = ClaimConvert.GetIdFromUserClaim(user);
             var response = await _http.DeleteAsync($"https://assignmentaddressprovider.azurewebsites.net/api/AddressProvider/{userId}/{id}?code={_config["Secrets:AddressProvider"]}");
             if (response.IsSuccessStatusCode)
             {
@@ -82,6 +86,4 @@ public class AddressService(HttpClient http, IConfiguration config) : IAddressSe
             return false;
         }
     }
-
-
 }
