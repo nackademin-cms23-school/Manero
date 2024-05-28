@@ -4,7 +4,7 @@
 <section class="edit-account">
     <div class="container">
         <div class="profile-img">
-            <img id="photoImage" src="" />
+            <img id="photoImage" src="@Model.ImageUrl" />
             <form onsubmit="handleSubmit(event)" enctype="multipart/form-data">
                 <input id="file" type="file" name="file" hidden />
                 <label for="file"><i class="fa-thin fa-camera"></i></label>
