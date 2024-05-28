@@ -4,6 +4,8 @@ namespace Frontend.ViewModels;
 
 public class ProductViewModel
 {
-    public List<Category> Categories { get; set; } = [];
-	public List<Product> Products { get; set; } = [];
+    public List<CategoryModel> Categories { get; set; } = [];
+	public List<ProductModel> Products { get; set; } = [];
+
+    public ProductModel? Product { get; set; }
 }

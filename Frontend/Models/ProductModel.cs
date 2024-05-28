@@ -1,6 +1,6 @@
 ﻿namespace Frontend.Models;
 
-public class Product
+public class ProductModel
 {
 	public string? Id { get; set; }
 	public string BatchNumber { get; set; } = null!;

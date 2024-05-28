@@ -5,7 +5,7 @@
         {
             @foreach (var product in Model.Products)
             {
-                <a class="product" asp-action="SingleProduct" asp-controller="Products" asp-route-id="@product.BatchNumber">
+                <a class="product" asp-action="SingleProduct" asp-controller="Products" asp-route-id="@product.Id">
                     <div class="card-img">
                         <img src="@product.ThumbnailImage" alt="@product.ProductName" />
                         <div class="bag-heart">
