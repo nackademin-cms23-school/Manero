@@ -11,30 +11,6 @@ public class ProductsController(HttpClient httpClient) : Controller
 {
 	private readonly HttpClient _httpClient = httpClient;
 	private string _productApiUrl = "https://mhsproducts.azurewebsites.net/api/GetAll?code=b9b60MT2HPX9uzbgAQuuMiwsFiD2Tt08fbd7VEEzO9XrAzFuIJp_ZQ%3D%3D";
-	{
-		_httpClient = httpClient;
-	}
-	{
-		_httpClient = httpClient;
-	}
-	{
-		_httpClient = httpClient;
-	}
-	{
-		_httpClient = httpClient;
-	}
-	{
-		_httpClient = httpClient;
-	}
-	{
-		_httpClient = httpClient;
-	}
-	{
-		_httpClient = httpClient;
-	}
-	{
-		_httpClient = httpClient;
-	}
 
 
     [Route("/category")]
@@ -52,6 +28,27 @@ public class ProductsController(HttpClient httpClient) : Controller
     [Route("/products")]
 	public async Task<IActionResult> Products()
 	{
-		return View();
-	}
+        var viewModel = new ProductViewModel();
+
+        try
+        {
+            var productResponse = await _httpClient.GetAsync(_productApiUrl);
+
+            if (productResponse.IsSuccessStatusCode)
+            {
+                var result = JsonConvert.DeserializeObject<List<Product>>(await productResponse.Content.ReadAsStringAsync());
+                if (result != null)
+                {
+                    viewModel.Products = result;
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+
+            Console.WriteLine($"An error occurred: {ex.Message}");
+        }
+
+        return View(viewModel);
+    }
 }
