@@ -1,0 +1,38 @@
+﻿
+@model Cardmodel
+@{
+    ViewData["Title"] = "card";
+}
+
+
+<section class="addcardpage">
+    <div class="container">
+        <div class="cart-header">
+            <h5>Add a new card</h5>
+        </div>
+        <div class="newcard-img">
+            <img src="/images/newcard.svg" alt="New Card Image">
+        </div>
+        <form class="card-form" method="post" onsubmit="return validateForm()" asp-action="Index" asp-controller="Home">
+            <div class="form-cardholder input-group">
+                <label for="cardholderName">Cardholder Name</label>
+                <input id="cardholderName" name="cardholderName" required />
+            </div>
+            <div class="form-cardnumber input-group">
+                <label for="cardNumber">Card Number</label>
+                <input id="cardNumber" name="cardNumber" placeholder="****-****-****-****" oninput="formatCardNumber()" pattern="\d{4}-\d{4}-\d{4}-\d{4}" required />
+            </div>
+            <div class="form-expirydate input-group">
+                <label for="expiryDate">Expiry Date (MM/YY)</label>
+                <input id="expiryDate" name="expiryDate" pattern="\d{2}/\d{2}" placeholder="MM/YY" required />
+            </div>
+            <div class="form-cvv input-group">
+                <label for="cvv">CVV</label>
+                <input id="cvv" name="cvv" placeholder="***" pattern="\d{3}" required />
+            </div>
+            <button class="btn btn-main" type="submit">SAVE CARD</button>
+        </form>
+
+
+    </div>
+</section>
