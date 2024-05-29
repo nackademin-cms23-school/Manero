@@ -36,6 +36,7 @@ public class AccountService(HttpClient http, IConfiguration config) : IAccountSe
         {
             string userId = ClaimConvert.GetIdFromUserClaim(user);
             var response = await _http.GetAsync($"https://assignmentaccountprovider.azurewebsites.net/api/AccountProvider/{userId}?code={_config["Secrets:AccountProvider"]}");
+            //var response = await _http.GetAsync($"http://localhost:7299/api/AccountProvider/{userId}");
             if (response.IsSuccessStatusCode)
             {
                 AccountViewModel model = await JsonService.DeserializeToModelAsync<AccountViewModel>(response);

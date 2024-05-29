@@ -9,10 +9,11 @@ using System.Security.Claims;
 namespace Frontend.Controllers;
 
 [Authorize]
-public class ProfileController(IAccountService accountService, HttpClient http) : Controller
+public class ProfileController(IAccountService accountService, HttpClient http, IConfiguration config) : Controller
 {
     private readonly IAccountService _accountService = accountService;
     private readonly HttpClient _http = http;
+    private readonly IConfiguration _config = config;
 
 
     [HttpGet]
@@ -58,11 +59,10 @@ public class ProfileController(IAccountService accountService, HttpClient http) 
                 ImgUrl = profileUrl
             };
 
-            var result = await _http.PostAsJsonAsync("http://localhost:7299/api/UpdateProfilePic", model);
-
+            var result = await _http.PostAsJsonAsync($"https://assignmentaccountprovider.azurewebsites.net/api/UpdateProfilePic?code={_config["Secrets:AccountProvider"]}", model);
             if (result.IsSuccessStatusCode)
             {
-                return new OkResult();
+                return RedirectToAction("AccountDetails");
             }
         }
         return new BadRequestResult();
