@@ -1890,21 +1890,28 @@ a:hover {
   align-items: center;
   padding: 10px;
 }
-.container .header .total-cost {
-  position: absolute;
-  right: 15px;
-  margin: 5px;
-  padding-top: 5px;
-  padding-right: 10px;
-  justify-content: center;
+.container .header .total {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin: 10px;
+}
+.container .header .price {
   background-color: var(--color-accent);
-  text-align: center;
   border-radius: 50%;
-  width: 25px;
-  height: 25px;
-  margin-top: 10px;
-  margin-right: 10px;
-
+  padding: 2px 5px;
+  color: white;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 8px;
+  top: 10px;
+  white-space: nowrap;
+}
+.container .header i {
+  font-size: 30px;
 }
 .container .wishlist-content {
   display: flex;
@@ -1919,17 +1926,13 @@ a:hover {
 }
 .container .wishlist-content .wishlist-card .wishlist-img {
   grid-area: img;
+  background-color: var(--color-light-gray);
 }
 .container .wishlist-content .wishlist-card .wishlist-feature {
   grid-area: info;
 }
 .container .wishlist-content .wishlist-card .wishlist-heart {
   grid-area: heart;
-}
-.container .wishlist-content .wishlist-card .wishlist-img {
-  background-color: var(--color-light-gray);
-}
-.container .wishlist-content .wishlist-heart {
   margin-left: 10px;
   right: 10px;
   top: 10px;
@@ -1937,12 +1940,7 @@ a:hover {
   flex-direction: column;
   gap: 1em;
 }
-
-.container .wishlist-content .wishlist-heart .bag-shop {
-  position: relative;
-}
-.container .wishlist-content .wishlist-heart .green-background {
-
+.container .wishlist-content .wishlist-card .green-background {
   background-color: var(--color-light-gray);
   color: white;
   padding: 1px;
@@ -1952,6 +1950,24 @@ a:hover {
   color: var(--color-yellow);
 }
 
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+}
 .cartpage .container {
   display: grid;
   grid-gap: 10px;
@@ -1985,4 +2001,72 @@ a:hover {
 }
 .cartpage .container .payment .edit-icon {
   margin-left: 130px;
+}
+
+.addcardpage .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.newcard-img {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+  gap: 10px;
+  padding-top: 10px;
+}
+
+.card-form {
+  width: 300px;
+  gap: 10px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: "cardholder" "cardnumber" "expirydate" "cvv" "button";
+}
+
+@media (min-width: 992px) {
+  .card-form {
+    width: 650px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "cardholder cardholder" "cardnumber cardnumber" "expirydate cvv" "button button";
+  }
+}
+.form-cardholder {
+  grid-area: cardholder;
+}
+
+.form-cardnumber {
+  grid-area: cardnumber;
+}
+
+.form-expirydate {
+  grid-area: expirydate;
+}
+
+.form-cvv {
+  grid-area: cvv;
+}
+
+button {
+  grid-area: button;
+}
+
+.hidden {
+  display: none;
+}
+
+.message {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid green;
+  background-color: #e0ffe0;
+  color: green;
+}
+
+.error {
+  border: 1px solid red;
+  background-color: #ffe0e0;
+  color: red;
 }
