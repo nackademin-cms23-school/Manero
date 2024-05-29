@@ -46,19 +46,19 @@ public class WishListController : Controller
 
         var testList = new ProductList
         {
-            Features = new List<ProductModel>
+            Features = new List<HomeProductModel>
             {
-                new ProductModel
+                new HomeProductModel
                 {
                     ProductName = "Byxor",
                     OriginalPrice = 59m
                 },
-                new ProductModel
+                new HomeProductModel
                 {
                     ProductName = "Klänning",
                     OriginalPrice= 899m
                 },
-                new ProductModel
+                new HomeProductModel
                 {
                     ProductName = "T-shirt",
                     OriginalPrice = 500m
