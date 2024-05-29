@@ -1,4 +1,5 @@
-﻿using Frontend.Interfaces;
+﻿using Azure.Messaging.ServiceBus;
+using Frontend.Interfaces;
 using Frontend.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
@@ -13,5 +14,6 @@ public static class ServiceConfigurations
         services.AddScoped<IAddressService, AddressService>();
         services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
             .AddCookie();
+        services.AddSingleton<ServiceBusClient>(new ServiceBusClient(configuration.GetConnectionString("ServiceBus")));
     }
 }
