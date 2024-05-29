@@ -35,7 +35,7 @@ namespace Frontend.Controllers
 
                 if (result.IsSuccessStatusCode)
                 {
-                    return RedirectToAction("Payment");
+                    return RedirectToAction("Index");
                 }
             }
             return View(model);
