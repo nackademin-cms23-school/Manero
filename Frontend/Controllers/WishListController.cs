@@ -19,7 +19,7 @@ public class WishListController : Controller
     [Route("/wishlist")]
     public async Task<IActionResult> Wishlist()
     {
-        var products = new List<ProductModel>();
+        var products = new List<HomeProductModel>();
         var email = User.Identity!.Name;
         var wishlistRequest = new WishlistRequest { Email = email! };
         var result = await _http.PostAsJsonAsync(_configuration["Urls:GetWishlist"], wishlistRequest);
@@ -31,15 +31,15 @@ public class WishListController : Controller
             {
                 foreach(var item in wr)
                 {
-                    ///*var productResult = await _http.PostAsJsonAsync(_configuration["Urls:ProductProviderUrl"], item.ProductId)*/;
-                    //if(productResult.IsSuccessStatusCode)
-                    //{
-                    //    var product = JsonConvert.DeserializeObject<ProductModel>(await result.Content.ReadAsStringAsync());
-                    //    if(product != null)
-                    //    {
-                    //        products.Add(product);
-                    //    }
-                    //}
+                    var productResult = await _http.PostAsJsonAsync(_configuration["Urls:ProductProviderUrl"], item.ProductId);
+                    if(productResult.IsSuccessStatusCode)
+                    {
+                        var product = JsonConvert.DeserializeObject<HomeProductModel>(await result.Content.ReadAsStringAsync());
+                        if(product != null)
+                        {
+                            products.Add(product);
+                        }
+                    }
                 }
             }
         }

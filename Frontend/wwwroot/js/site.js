@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     forgotPasswordVerification()
     accountVerification()
     onboardingFunction()
+    profileImgUpload()
     handleOrderClick()
     handelbutton()
 })
@@ -35,7 +36,6 @@ function forgotPasswordVerification() {
                     let result = value.slice(1)
 
                     e.target.value = result
-                    console.log(value)
                 }
             })
         })
@@ -64,7 +64,6 @@ function accountVerification(){
 
 function onboardingFunction() {
     try {
-        console.log("Hej")
 
         const btns = document.querySelectorAll("#onboard-btn")
         btns.forEach(btn => {
@@ -74,7 +73,6 @@ function onboardingFunction() {
         })
 
         const dots1 = document.querySelectorAll(".dots-one")
-        console.log(dots1)
         dots1.forEach(dot1 => {
             dot1.addEventListener("click", function () {
                 currentSlide(1)
@@ -111,7 +109,7 @@ function onboardingFunction() {
             let slides = document.getElementsByClassName("content");
             let dots = document.getElementsByClassName("dot");
             if (n > slides.length) { slideIndex = 1 }
-            console.log(n)
+
             if (n < 1) { slideIndex = slides.length }
             for (i = 0; i < slides.length; i++) {
                 slides[i].style.display = "none";
@@ -124,6 +122,55 @@ function onboardingFunction() {
         }
     }
     catch { }
+}
+
+function profileImgUpload() {
+    try {
+        const fileUploader = document.querySelector("#file")
+        
+
+        if (fileUploader != undefined) {
+            fileUploader.addEventListener("change", function (e) {
+                if (this.files.length > 0) {
+                    handleSubmit(e)
+                    
+                }
+            })
+        }
+    }
+    catch { }
+}
+
+
+const handleSubmit = async (e) => {
+
+    e.preventDefault()
+    
+    const file = e.target.files[0]
+    console.log(file)
+    const formData = new FormData()
+    formData.append('file', file);
+    
+    const res = await fetch('https://fileproviderasp2.azurewebsites.net/api/FileUploader?code=ioIp0g8nzbFkUfS2MtyVryqJnLN4lj0mD4Y1Yk5NxHm5AzFujw3E5g%3D%3D', {
+        method: 'post',
+        body: formData
+    })
+
+    if (res.status === 200) {
+        let data = await res.text()
+        data = data.replace(/^"|"$/g, '');
+
+        console.log(data)
+        const url = `/profile/updateprofilepic?profileUrl=${data}`
+
+        const updatePicRes = await fetch(url)
+
+        if (updatePicRes.status === 200) {
+            const element = document.querySelector("#photoImage")
+            console.log(element)
+            element.src = data
+        }
+    }
 }
 
 const handleOrderClick = () => {
@@ -149,7 +196,6 @@ const handleOrderClick = () => {
     catch {
 
     }
-
 
 }
 // payment and wishlist
