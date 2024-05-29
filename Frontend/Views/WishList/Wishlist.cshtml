@@ -1,23 +1,32 @@
 ﻿
+@model ProductList
+@{
+    ViewData["Title"] = "Wishlist";
+    var priceSum = Model.Features.Sum(p => p.OriginalPrice);
+}
+
+ 
 <section class="wishlist">
     <div class="container">
         <div class="header">
             <button class="btn btn-menu"><i class="fa-solid fa-bars"></i></button>
             <p class="header-wish">Wishlist</p>
-            <div class="total-cost"> <span id="total-cost">$0</span></div>
-            <i class="fa-regular fa-bag-shopping"></i>
+            <div class="total">
+                <div><span class="price" id="total-cost">$@priceSum</span></div>
+                <i class="fa-regular fa-bag-shopping"></i>
+            </div>
         </div>
         <div class="wishlist-content">
-            
+            @foreach (var item in Model.Features)
             {
                 <div class="wishlist-card">
                     <div class="wishlist-img">
-                        
+                      <img src="@item.ImgUrl" alt="Alternate Text" />
                     </div>
                     <div class="wishlist-feature">
                         <div class="wishlist-info">
-                            <p>Sunmar dress</p>
-                            <p>$24.95</p>
+                            <p>@item.ProductName</p>
+                            <p>$@item.OriginalPrice</p>
                             <div class="rating">
                                 <i class="fa-solid fa-star"></i>
                                 <i class="fa-solid fa-star"></i>
@@ -32,7 +41,11 @@
                         <i class="fa-regular fa-bag-shopping"></i>
                     </div>
                 </div>
+                
             }
+
+            
+
         </div>
     </div>
     </div>
