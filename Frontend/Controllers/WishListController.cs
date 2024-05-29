@@ -22,7 +22,7 @@ public class WishListController : Controller
         var products = new List<HomeProductModel>();
         var email = User.Identity!.Name;
         var wishlistRequest = new WishlistRequest { Email = email! };
-        var result = await _http.PostAsJsonAsync(_configuration["Urls:WishlistProviderUrl"], wishlistRequest);
+        var result = await _http.PostAsJsonAsync(_configuration["Urls:GetWishlist"], wishlistRequest);
         if(result.IsSuccessStatusCode)
         {
             var wr = JsonConvert.DeserializeObject<List<WishlistResponse>>(await result.Content.ReadAsStringAsync());
@@ -44,6 +44,27 @@ public class WishListController : Controller
             }
         }
 
-        return View(products);
+        var testList = new ProductList
+        {
+            Features = new List<ProductModel>
+            {
+                new ProductModel
+                {
+                    ProductName = "Byxor",
+                    OriginalPrice = 59m
+                },
+                new ProductModel
+                {
+                    ProductName = "Klänning",
+                    OriginalPrice= 899m
+                },
+                new ProductModel
+                {
+                    ProductName = "T-shirt",
+                    OriginalPrice = 500m
+                }
+            }
+        };
+        return View(testList);
     }
 }
