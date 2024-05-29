@@ -4,15 +4,16 @@
 <section class="edit-account">
     <div class="container">
         <div class="profile-img">
-            <div class="edit">
-                <a asp-action="Index" asp-controller="Profile">
-                    <i class="fa-thin fa-camera"></i>
-                </a>
-            </div>
+            <img id="photoImage" src="@Model.ImageUrl" />
+            <form onsubmit="handleSubmit(event)" enctype="multipart/form-data">
+                <input id="file" type="file" name="file" hidden />
+                <label for="file"><i class="fa-thin fa-camera"></i></label>
+            </form>
         </div>
 
         <form method="post" asp-action="EditAccount" asp-controller="Profile">
             <input asp-for="UserId" hidden readonly />
+            <input asp-for="ImageUrl" hidden readonly />
 
             <div class="form">
                 <div class="input-group">
@@ -44,3 +45,6 @@
         </form>
     </div>
 </section>
+<script>
+    
+</script>

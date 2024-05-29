@@ -19,10 +19,10 @@ public class WishListController : Controller
     [Route("/wishlist")]
     public async Task<IActionResult> Wishlist()
     {
-        var products = new List<ProductModel>();
+        var products = new List<HomeProductModel>();
         var email = User.Identity!.Name;
         var wishlistRequest = new WishlistRequest { Email = email! };
-        var result = await _http.PostAsJsonAsync(_configuration["Urls:WishlistProviderUrl"], wishlistRequest);
+        var result = await _http.PostAsJsonAsync(_configuration["Urls:GetWishlist"], wishlistRequest);
         if(result.IsSuccessStatusCode)
         {
             var wr = JsonConvert.DeserializeObject<List<WishlistResponse>>(await result.Content.ReadAsStringAsync());
@@ -34,7 +34,7 @@ public class WishListController : Controller
                     var productResult = await _http.PostAsJsonAsync(_configuration["Urls:ProductProviderUrl"], item.ProductId);
                     if(productResult.IsSuccessStatusCode)
                     {
-                        var product = JsonConvert.DeserializeObject<ProductModel>(await result.Content.ReadAsStringAsync());
+                        var product = JsonConvert.DeserializeObject<HomeProductModel>(await result.Content.ReadAsStringAsync());
                         if(product != null)
                         {
                             products.Add(product);
@@ -44,6 +44,27 @@ public class WishListController : Controller
             }
         }
 
-        return View(products);
+        var testList = new ProductList
+        {
+            Features = new List<HomeProductModel>
+            {
+                new HomeProductModel
+                {
+                    ProductName = "Byxor",
+                    OriginalPrice = 59m
+                },
+                new HomeProductModel
+                {
+                    ProductName = "Klänning",
+                    OriginalPrice= 899m
+                },
+                new HomeProductModel
+                {
+                    ProductName = "T-shirt",
+                    OriginalPrice = 500m
+                }
+            }
+        };
+        return View(testList);
     }
 }

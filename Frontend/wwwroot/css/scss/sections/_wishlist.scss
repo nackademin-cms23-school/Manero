@@ -8,20 +8,32 @@
         align-items: center;
         padding: 10px;
 
-        .total-cost {
-            position: absolute;
-            right: 15px;
-            margin: 5px;
-            padding-top: 5px;
-            padding-right: 10px;
-            justify-content: center;
+
+
+        .total {
+            display: flex;
+            align-items: center;
+            position: relative;
+            margin: 10px;
+        }
+
+        .price {
             background-color: var(--color-accent);
-            text-align: center;
             border-radius: 50%;
-            width: 25px;
-            height: 25px;
-            margin-top: 10px;
-            margin-right: 10px;
+            padding: 2px 5px;
+            color: white;
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            right: 8px;
+            top: 10px;
+            white-space: nowrap;
+        }
+
+        i {
+            font-size: 30px;
         }
     }
 
@@ -38,6 +50,7 @@
 
             .wishlist-img {
                 grid-area: img;
+                background-color: var(--color-light-gray);
             }
 
             .wishlist-feature {
@@ -46,24 +59,12 @@
 
             .wishlist-heart {
                 grid-area: heart;
-            }
-
-            .wishlist-img {
-                background-color: var( --color-light-gray);
-            }
-        }
-
-        .wishlist-heart {
-            margin-left: 10px;
-            right: 10px;
-            top: 10px;
-            display: flex;
-            flex-direction: column;
-            gap: 1em;
-
-
-            .bag-shop {
-                position: relative;
+                margin-left: 10px;
+                right: 10px;
+                top: 10px;
+                display: flex;
+                flex-direction: column;
+                gap: 1em;
             }
 
             .green-background {
@@ -77,5 +78,26 @@
         .rating {
             color: var(--color-yellow);
         }
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+        margin: 0 auto;
     }
 }

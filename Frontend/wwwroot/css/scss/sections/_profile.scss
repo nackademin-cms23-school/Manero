@@ -16,10 +16,18 @@
                 align-self: end;
                 justify-self: center;
                 align-content: center;
-                height: 182px;
-                width: 182px;
-                border: solid 8px var(--color-light-gray);
+                align-items: center;
+                height: 170px;
+                width: 170px;
                 border-radius: 100%;
+
+                #photoImage {
+                    border-radius: 50%;
+                    height: 170px;
+                    width: 170px;
+                    object-fit: cover;
+                    border: solid 8px var(--color-light-gray);
+                }
 
                 .edit {
                     display: flex;

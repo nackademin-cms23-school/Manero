@@ -1,17 +1,17 @@
 ﻿<section class="cartpage">
     <div class="container">
         <div class="cart-header">
-            <i class="fa-solid fa-chevron-left"></i></a>
+            <i class="fa-solid fa-chevron-left"></i>
             <h5>Payment method</h5>
         </div>
         <div class="sub-header">
             <h6>Cards</h6>
             <h6 id="add-card">Add a new card</h6>
-            <i class="fas fa-plus-circle plus-icon"></i>
+            <a asp-action="PaymentMethod" asp-controller="Payment"><i class="fas fa-plus-circle plus-icon" id="add-card-icon"></i></a>
         </div>
         <div class="cart-img">
-            <img src="/images/card 1.svg" alt="">
-            <img src="/images/card 2.svg" alt="">
+            <img src="/images/card 1.svg" alt="card 1">
+            <img src="/images/card 2.svg" alt="card 2">
         </div>
         <div class="payment">
             <div class="Applepay">
@@ -34,8 +34,9 @@
                 <h6>Payoneer</h6>
             </div>
             <div class="edit-icon">
-                <i class="fas fa-plus-circle plus-icon"></i>
+                <a asp-action="PaymentMethod" asp-controller="Payment"><i class="fas fa-plus-circle plus-icon" id="add-payoneer-icon"></i></a>
             </div>
         </div>
     </div>
 </section>
+

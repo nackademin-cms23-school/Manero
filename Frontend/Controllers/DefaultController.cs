@@ -15,7 +15,7 @@ public class DefaultController(HttpClient client) : Controller
     {
         var Response = await _client.GetAsync("https://mhsproducts.azurewebsites.net/api/GetAll?code=b9b60MT2HPX9uzbgAQuuMiwsFiD2Tt08fbd7VEEzO9XrAzFuIJp_ZQ%3D%3D");
         var data = await Response.Content.ReadAsStringAsync();
-        var products = JsonConvert.DeserializeObject <IEnumerable<ProductModel>>(data);
+        var products = JsonConvert.DeserializeObject <IEnumerable<HomeProductModel>>(data);
         if (products != null)
         {
             var model = new ProductList
