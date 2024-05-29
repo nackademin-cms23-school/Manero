@@ -13,7 +13,7 @@
         <div class="newcard-img">
             <img src="/images/newcard.svg" alt="New Card Image">
         </div>
-        <form class="card-form" method="post" onsubmit="return validateForm()" asp-action="Index" asp-controller="Home">
+        <form class="card-form" method="post" onsubmit="return validateForm()" asp-action="PostCard" asp-controller="Payment">
             <div class="form-cardholder input-group">
                 <label for="cardholderName">Cardholder Name</label>
                 <input id="cardholderName" name="cardholderName" required />
