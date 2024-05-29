@@ -375,47 +375,49 @@ a:hover {
   grid-gap: 20px;
 }
 .homepage .container .header {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  justify-items: center;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   padding: 10px;
 }
-.homepage .container .header .total-cost {
+.homepage .container .header .total {
   display: flex;
-  justify-content: flex-start;
+  align-items: center;
   position: relative;
   margin: 10px;
-  text-align: center;
-  width: 25px;
-  height: 25px;
 }
-.homepage .container .header .total-cost .price {
-  position: absolute;
+.homepage .container .header .price {
   background-color: var(--color-accent);
-  right: 15px;
   border-radius: 50%;
-  width: 25px;
-  height: 25px;
+  padding: 2px 5px;
+  color: white;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 8px;
+  top: 10px;
+  white-space: nowrap;
 }
-.homepage .container .header .total-cost i {
-  font-size: 20px;
+.homepage .container .header i {
+  font-size: 30px;
 }
-.homepage .container .bag-shop {
+.homepage .bag-shop {
   position: relative;
 }
-.homepage .container .swiper {
+.homepage .swiper {
   width: 100%;
   height: 100%;
 }
-.homepage .container .mySwiper {
+.homepage .mySwiper {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   height: 105px;
   overflow: hidden;
 }
-.homepage .container .mySwiper .swiper-slide {
+.homepage .mySwiper .swiper-slide {
   background-color: var(--color-light-gray);
   text-align: center;
   line-height: 170px;
@@ -424,7 +426,7 @@ a:hover {
   height: 75px;
   margin-right: 8px;
 }
-.homepage .container .content {
+.homepage .content {
   background-color: var(--color-light-gray);
   display: flex;
   flex-direction: column;
@@ -433,35 +435,35 @@ a:hover {
   gap: 20px;
   padding: 20px;
 }
-.homepage .container .content .promotion {
+.homepage .content .promotion {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.homepage .container .content .promotion h2 {
+.homepage .content .promotion h2 {
   color: white;
 }
-.homepage .container .content a {
+.homepage .content a {
   width: 150px;
 }
-.homepage .container .feature-header {
+.homepage .feature-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 0;
 }
-.homepage .container .feature-content {
+.homepage .feature-content {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 20px;
 }
-.homepage .container .feature-content .card-img {
+.homepage .feature-content .card-img {
   background-color: var(--color-light-gray);
   height: 170px;
   width: 160px;
   position: relative;
 }
-.homepage .container .feature-content .card-img .bag-heart {
+.homepage .feature-content .card-img .bag-heart {
   margin-left: 10px;
   position: absolute;
   right: 10px;
@@ -470,36 +472,36 @@ a:hover {
   flex-direction: column;
   gap: 1em;
 }
-.homepage .container .bestseller-header {
+.homepage .bestseller-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 0;
 }
-.homepage .container .bestseller-content {
+.homepage .bestseller-content {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-.homepage .container .bestseller-content .bestseller-card {
+.homepage .bestseller-content .bestseller-card {
   display: grid;
   grid-template-columns: 1fr 3fr auto;
   grid-template-areas: "img info heart";
   gap: 10px;
 }
-.homepage .container .bestseller-content .bestseller-card .bestseller-img {
+.homepage .bestseller-content .bestseller-card .bestseller-img {
   background-color: var(--color-light-gray);
 }
-.homepage .container .bestseller-content .bestseller-card .bestseller-img {
+.homepage .bestseller-content .bestseller-card .bestseller-img {
   grid-area: img;
 }
-.homepage .container .bestseller-content .bestseller-card .bestseller-feature {
+.homepage .bestseller-content .bestseller-card .bestseller-feature {
   grid-area: info;
 }
-.homepage .container .bestseller-content .bestseller-card .bestseller-heart {
+.homepage .bestseller-content .bestseller-card .bestseller-heart {
   grid-area: heart;
 }
-.homepage .container .bestseller-content .rating {
+.homepage .bestseller-content .rating {
   color: var(--color-yellow);
 }
 
@@ -1644,19 +1646,23 @@ a:hover {
 #menu button:hover {
   background-color: #0056b3;
 }
+
 #menu a:hover {
   color: #f1f1f1;
 }
+
 #menu .closebtn {
   position: absolute;
   top: 0;
   right: 25px;
   font-size: 36px;
 }
+
 #main {
   transition: margin-left 0.5s;
   padding: 16px;
 }
+
 .order-history .container .list {
   display: flex;
   flex-direction: column;
@@ -1756,6 +1762,7 @@ a:hover {
   justify-items: center;
   gap: 8px;
 }
+
 .navigation {
   position: fixed;
   bottom: 0;
@@ -1777,4 +1784,195 @@ a:hover {
 .navigation .container .nav-links .nav-link:hover, .navigation .container .nav-links .nav-link:active {
   color: var(--color-main);
   background: var(--color-light-gray);
+}
+
+.container {
+  display: grid;
+  grid-gap: 20px;
+}
+.container .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+.container .header .total {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin: 10px;
+}
+.container .header .price {
+  background-color: var(--color-accent);
+  border-radius: 50%;
+  padding: 2px 5px;
+  color: white;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 8px;
+  top: 10px;
+  white-space: nowrap;
+}
+.container .header i {
+  font-size: 30px;
+}
+.container .wishlist-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.container .wishlist-content .wishlist-card {
+  display: grid;
+  grid-template-columns: 1fr 3fr auto;
+  grid-template-areas: "img info heart";
+  gap: 10px;
+}
+.container .wishlist-content .wishlist-card .wishlist-img {
+  grid-area: img;
+  background-color: var(--color-light-gray);
+}
+.container .wishlist-content .wishlist-card .wishlist-feature {
+  grid-area: info;
+}
+.container .wishlist-content .wishlist-card .wishlist-heart {
+  grid-area: heart;
+  margin-left: 10px;
+  right: 10px;
+  top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+.container .wishlist-content .wishlist-card .green-background {
+  background-color: var(--color-light-gray);
+  color: white;
+  padding: 1px;
+  margin-top: 10px;
+}
+.container .wishlist-content .rating {
+  color: var(--color-yellow);
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+}
+.cartpage .container {
+  display: grid;
+  grid-gap: 10px;
+  margin-bottom: 100px;
+  padding-top: 25px;
+}
+.cartpage .container .cart-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 10px;
+}
+.cartpage .container .sub-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  padding: 10px;
+  padding-left: 20px;
+}
+.cartpage .container .sub-header i {
+  margin-right: 15px;
+  padding-top: 5px;
+}
+.cartpage .container .cart-img {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 10px;
+}
+.cartpage .container .payment {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 10px;
+}
+.cartpage .container .payment .edit-icon {
+  margin-left: 130px;
+}
+
+.addcardpage .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.newcard-img {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+  gap: 10px;
+  padding-top: 10px;
+}
+
+.card-form {
+  width: 300px;
+  gap: 10px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: "cardholder" "cardnumber" "expirydate" "cvv" "button";
+}
+
+@media (min-width: 992px) {
+  .card-form {
+    width: 650px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "cardholder cardholder" "cardnumber cardnumber" "expirydate cvv" "button button";
+  }
+}
+.form-cardholder {
+  grid-area: cardholder;
+}
+
+.form-cardnumber {
+  grid-area: cardnumber;
+}
+
+.form-expirydate {
+  grid-area: expirydate;
+}
+
+.form-cvv {
+  grid-area: cvv;
+}
+
+button {
+  grid-area: button;
+}
+
+.hidden {
+  display: none;
+}
+
+.message {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid green;
+  background-color: #e0ffe0;
+  color: green;
+}
+
+.error {
+  border: 1px solid red;
+  background-color: #ffe0e0;
+  color: red;
 }

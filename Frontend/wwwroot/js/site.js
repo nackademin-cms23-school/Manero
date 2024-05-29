@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     accountVerification()
     onboardingFunction()
     handleOrderClick()
+    handelbutton()
 })
 
 function swiperFunction() {
@@ -151,3 +152,71 @@ const handleOrderClick = () => {
 
 
 }
+// payment and wishlist
+function formatCardNumber() {
+    const cardNumberInput = document.getElementById('cardNumber');
+    let value = cardNumberInput.value.replace(/\D/g, '');
+    value = value.slice(0, 16);
+    cardNumberInput.value = value.match(/.{1,4}/g)?.join('-') || value;
+}
+
+
+function validateForm() {
+    const cardNumber = document.getElementById('cardNumber').value.replace(/\D/g, '');
+    const cvv = document.getElementById('cvv').value;
+    const expiryDate = document.getElementById('expiryDate').value;
+
+    if (cardNumber.length !== 16) {
+        alert('Card number must be 16 digits.');
+        return false;
+    }
+
+    if (!/^\d{3}$/.test(cvv)) {
+        alert('CVV must be exactly 3 digits.');
+        return false;
+    }
+
+    if (!/^\d{2}\/\d{2}$/.test(expiryDate)) {
+        alert('Expiry date must be in the format MM/YY.');
+        return false;
+    }
+
+    const [month, year] = expiryDate.split('/').map(Number);
+
+    if (month < 1 || month > 12) {
+        alert('Expiry month must be between 01 and 12.');
+        return false;
+    }
+
+    const currentYear = new Date().getFullYear() % 100;
+    if (year < currentYear || year > currentYear + 10) {
+        alert('Expiry year must be within the next 10 years.');
+        return false;
+    }
+
+    return true;
+}
+
+function handelbutton() {
+    document.addEventListener('DOMContentLoaded', function () {
+
+        const addCardIcon = document.getElementById('add-card-icon');
+        const addPayoneerIcon = document.getElementById('add-payoneer-icon');
+
+
+        function redirectToCardPage() {
+            window.location.href = '/path/to/Index.html';
+        }
+
+
+        if (addCardIcon) {
+            addCardIcon.addEventListener('click', redirectToCardPage);
+        }
+        if (addPayoneerIcon) {
+            addPayoneerIcon.addEventListener('click', redirectToCardPage);
+        }
+    });
+
+}
+
+

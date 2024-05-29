@@ -1,12 +1,16 @@
 ﻿@model ProductList 
+@{
+    ViewData["Title"] = "Wishlist";
+    var priceSum = Model.Features.Sum(p => p.OriginalPrice);
+}
 <section class="homepage">
     <div class="container">
         <div class="header">
             <button class="btn btn-menu"><i class="fa-solid fa-bars"></i></button>
             <img src="/images/logo.svg" alt="">
-            <div class="total-cost">
+            <div class="total">
+                <div><span class="price" id="total-cost">$@priceSum</span></div>
                 <i class="fa-regular fa-bag-shopping"></i>
-                <span class="price" id="total-cost">$0</span>
             </div>
         </div>
         <div class="bag-shop">
