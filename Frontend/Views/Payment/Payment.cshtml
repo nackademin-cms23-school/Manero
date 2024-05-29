@@ -1,0 +1,42 @@
+﻿<section class="cartpage">
+    <div class="container">
+        <div class="cart-header">
+            <i class="fa-solid fa-chevron-left"></i>
+            <h5>Payment method</h5>
+        </div>
+        <div class="sub-header">
+            <h6>Cards</h6>
+            <h6 id="add-card">Add a new card</h6>
+            <a asp-action="PaymentMethod" asp-controller="Payment"><i class="fas fa-plus-circle plus-icon" id="add-card-icon"></i></a>
+        </div>
+        <div class="cart-img">
+            <img src="/images/card 1.svg" alt="card 1">
+            <img src="/images/card 2.svg" alt="card 2">
+        </div>
+        <div class="payment">
+            <div class="Applepay">
+                <h6>Apple Pay <i class="fas fa-check check-icon"></i></h6>
+            </div>
+            <div class="edit-icon">
+                <i class="fas fa-pencil-alt"></i>
+            </div>
+        </div>
+        <div class="payment">
+            <div class="pay-pal">
+                <h6>PayPal <i class="fas fa-check check-icon"></i></h6>
+            </div>
+            <div class="edit-icon">
+                <i class="fas fa-pencil-alt"></i>
+            </div>
+        </div>
+        <div class="payment">
+            <div class="payoneer">
+                <h6>Payoneer</h6>
+            </div>
+            <div class="edit-icon">
+                <a asp-action="PaymentMethod" asp-controller="Payment"><i class="fas fa-plus-circle plus-icon" id="add-payoneer-icon"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+

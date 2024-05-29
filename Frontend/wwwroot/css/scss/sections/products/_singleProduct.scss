@@ -1,6 +1,6 @@
-.product {
+.product-single {
     margin: 50px 0;
-    
+
     .slider {
         .picture {
             height: 400px;
@@ -36,7 +36,7 @@
             margin-top: 20px;
         }
 
-        .content {
+        .product-content {
             .top-content {
                 .title-heart {
                     display: flex;
@@ -78,9 +78,30 @@
                     justify-content: space-between;
                     align-items: center;
 
-                    .price {
-                        font-size: x-large;
-                        font-weight: 500;
+                    .pricing {
+                        display: flex;
+                        gap: 0.2rem;
+                        font-size: 18px;
+                        font-weight: 600;
+
+                        .discount {
+                            color: var(--color-accent);
+                            font-size: 18px;
+                            font-weight: 600;
+                        }
+
+                        .original {
+                            color: var(--color-text);
+                            font-size: 18px;
+                            font-weight: 600;
+                        }
+
+                        .discount-enabled {
+                            color: var(--color-text);
+                            text-decoration: line-through;
+                            font-size: 16px;
+                            font-weight: 400;
+                        }
                     }
 
                     .multiplyer {
@@ -150,30 +171,43 @@
                         width: 35px;
                         border-radius: 40px;
                         text-align: center;
+                        background-color: var(--color);
 
                         &:hover {
                             outline: 5px solid #DBE3F5;
                         }
                     }
 
-                    .red {
-                        background-color: red;
+                    .Red {
+                        background-color: Red;
                     }
 
-                    .blue {
-                        background-color: blue;
+                    .Blue {
+                        background-color: Blue;
                     }
 
-                    .brown {
+                    .Beige {
                         background-color: beige;
                     }
 
-                    .green {
+                    .Green {
                         background-color: green;
                     }
 
-                    .black {
+                    .Black {
                         background-color: black;
+                    }
+
+                    .Yellow {
+                        background-color: yellow;
+                    }
+
+                    .Purple {
+                        background-color: purple;
+                    }
+
+                    .Grey {
+                        background-color: grey;
                     }
                 }
             }

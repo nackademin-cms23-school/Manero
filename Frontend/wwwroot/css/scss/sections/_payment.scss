@@ -1,0 +1,43 @@
+﻿.cartpage {
+
+    .container {
+        display: grid;
+        grid-gap: 10px;
+        margin-bottom: 100px;
+        padding-top: 25px;
+
+        .cart-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 10px;
+        }
+
+        .sub-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr auto;
+            padding: 10px;
+            padding-left: 20px;
+
+            i {
+                margin-right: 15px;
+                padding-top: 5px;
+            }
+        }
+
+        .cart-img {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 10px;
+        }
+
+        .payment {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 10px;
+
+            .edit-icon {
+                margin-left: 130px;
+            }
+        }
+    }
+}

@@ -15,5 +15,11 @@ public static class ServiceConfigurations
         services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
             .AddCookie();
         services.AddSingleton<ServiceBusClient>(new ServiceBusClient(configuration.GetConnectionString("ServiceBus")));
+        services.ConfigureApplicationCookie(x =>
+        {
+            x.LoginPath = "/signin";
+            x.LogoutPath = "/signout";
+            x.AccessDeniedPath = "/denied";
+        });
     }
 }
