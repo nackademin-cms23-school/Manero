@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Upload File";
+}
+
+<section class="fileuploader">
+    <div class="container">
+        <form onsubmit="handleSubmit(event)" enctype="multipart/form-data">
+            <input type="file" name="file" />
+            <button type="submit">Upload</button>
+            
+        </form>
+
+        <img id="photoImage" />
+
+    </div>
+</section>
+<script>
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+
+        const file = e.target['file'].files[0]
+
+        const formData = new FormData()
+        formData.append('file', file);
+
+        const res = await fetch('https://fileproviderasp2.azurewebsites.net/api/FileUploader?code=ioIp0g8nzbFkUfS2MtyVryqJnLN4lj0mD4Y1Yk5NxHm5AzFujw3E5g%3D%3D', {
+            method: 'post',
+            body: formData
+        })
+
+        if (res.status === 200) {
+            let data = await res.text()
+            data = data.replace(/^"|"$/g, '');
+
+            console.log(data)
+
+            const element = document.querySelector("#photoImage")
+            element.src = data
+        }
+    }
+</script>

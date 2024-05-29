@@ -1,4 +1,5 @@
 ﻿using Frontend.Interfaces;
+using Frontend.Models;
 using Frontend.Services;
 using Frontend.ViewModels;
 using Microsoft.AspNetCore.Authorization;
@@ -8,9 +9,11 @@ using System.Security.Claims;
 namespace Frontend.Controllers;
 
 [Authorize]
-public class ProfileController(IAccountService accountService) : Controller
+public class ProfileController(IAccountService accountService, HttpClient http, IConfiguration config) : Controller
 {
     private readonly IAccountService _accountService = accountService;
+    private readonly HttpClient _http = http;
+    private readonly IConfiguration _config = config;
 
 
     [HttpGet]
@@ -23,7 +26,7 @@ public class ProfileController(IAccountService accountService) : Controller
             return View(model);
         }
         return null!;
-        
+
     }
 
     [HttpGet]
@@ -40,5 +43,28 @@ public class ProfileController(IAccountService accountService) : Controller
     {
         AccountViewModel model = await _accountService.UpdateAsync(form);
         return RedirectToAction("Index");
+    }
+
+
+    [HttpGet]
+    [Route("profile/updateprofilepic")]
+    public async Task<IActionResult> UpdateProfile(string profileUrl)
+    {
+        var email = User.FindFirstValue(ClaimTypes.Email);
+        if (!string.IsNullOrEmpty(profileUrl) && !string.IsNullOrEmpty(email))
+        {
+            var model = new UpdateProfilePicModel
+            {
+                Email = email,
+                ImgUrl = profileUrl
+            };
+
+            var result = await _http.PostAsJsonAsync($"https://assignmentaccountprovider.azurewebsites.net/api/UpdateProfilePic?code={_config["Secrets:AccountProvider"]}", model);
+            if (result.IsSuccessStatusCode)
+            {
+                return RedirectToAction("AccountDetails");
+            }
+        }
+        return new BadRequestResult();
     }
 }

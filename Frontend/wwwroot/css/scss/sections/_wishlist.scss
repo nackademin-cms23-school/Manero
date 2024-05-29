@@ -1,0 +1,103 @@
+﻿.container {
+    display: grid;
+    grid-gap: 20px;
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+
+
+
+        .total {
+            display: flex;
+            align-items: center;
+            position: relative;
+            margin: 10px;
+        }
+
+        .price {
+            background-color: var(--color-accent);
+            border-radius: 50%;
+            padding: 2px 5px;
+            color: white;
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            right: 8px;
+            top: 10px;
+            white-space: nowrap;
+        }
+
+        i {
+            font-size: 30px;
+        }
+    }
+
+    .wishlist-content {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .wishlist-card {
+            display: grid;
+            grid-template-columns: 1fr 3fr auto;
+            grid-template-areas: "img info heart";
+            gap: 10px;
+
+            .wishlist-img {
+                grid-area: img;
+                background-color: var(--color-light-gray);
+            }
+
+            .wishlist-feature {
+                grid-area: info;
+            }
+
+            .wishlist-heart {
+                grid-area: heart;
+                margin-left: 10px;
+                right: 10px;
+                top: 10px;
+                display: flex;
+                flex-direction: column;
+                gap: 1em;
+            }
+
+            .green-background {
+                background-color: var(--color-light-gray);
+                color: white;
+                padding: 1px;
+                margin-top: 10px;
+            }
+        }
+
+        .rating {
+            color: var(--color-yellow);
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+        margin: 0 auto;
+    }
+}
