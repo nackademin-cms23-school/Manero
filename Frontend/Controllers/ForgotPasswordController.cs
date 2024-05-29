@@ -6,9 +6,16 @@ using System.Net;
 
 namespace Frontend.Controllers;
 
-public class ForgotPasswordController(HttpClient http) : Controller
+public class ForgotPasswordController : Controller
 {
-    private readonly HttpClient _http = http;
+    private readonly HttpClient _http;
+    private readonly IConfiguration _configuration;
+
+    public ForgotPasswordController(HttpClient http, IConfiguration configuration)
+    {
+        _http = http;
+        _configuration = configuration;
+    }
 
     [HttpGet]
     [Route("/forgotpassword")]
@@ -23,7 +30,7 @@ public class ForgotPasswordController(HttpClient http) : Controller
     {
         if(ModelState.IsValid)
         {
-            var result = await _http.PostAsJsonAsync("http://localhost:7023/api/ForgotPassword", model);
+            var result = await _http.PostAsJsonAsync(_configuration["Urls:ForgotPasswordUrl"], model);
             if(result.IsSuccessStatusCode)
             {
                 TempData["ForgotPasswordEmail"] = model.Email;
@@ -62,7 +69,7 @@ public class ForgotPasswordController(HttpClient http) : Controller
                     Code = code,
                 };
 
-                var result = await _http.PostAsJsonAsync("http://localhost:7023/api/ValidateForgotPasswordCode", forgotPasswordValidate);
+                var result = await _http.PostAsJsonAsync(_configuration["Urls:ValidateForgotPasswordCodeUrl"], forgotPasswordValidate);
 
                 if(result.IsSuccessStatusCode)
                 {
@@ -98,7 +105,7 @@ public class ForgotPasswordController(HttpClient http) : Controller
 
             if (resetForgotPasswordModel != null!)
             {
-                var result = await _http.PostAsJsonAsync("http://localhost:7023/api/ResetForgotPasword", resetForgotPasswordModel);
+                var result = await _http.PostAsJsonAsync(_configuration["Urls:ResetPasswordUrl"], resetForgotPasswordModel);
                 if (result.IsSuccessStatusCode)
                 {
                     return RedirectToAction("SignIn", "Auth");
