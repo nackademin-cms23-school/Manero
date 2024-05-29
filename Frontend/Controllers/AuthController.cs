@@ -148,7 +148,7 @@ public class AuthController : Controller
     {
         await StartProcessingExternalLogin();
 
-        var azureFunctionUri = "http://localhost:7234/signin-facebook";
+        var azureFunctionUri = _configuration["Urls:ExternalLoginFacebookUrl"]!;
         return Redirect(azureFunctionUri);
     }
 
